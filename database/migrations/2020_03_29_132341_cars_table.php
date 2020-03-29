@@ -31,8 +31,7 @@ class CarsTable extends Migration
                 $table->timestamp('deleted_at')
                     ->nullable()
                     ->comment('ngày xóa tạm');
-                // Setting unique
-                $table->unique(['academy_code', 'academy_name']);
+                
             });
             DB::statement("ALTER TABLE `cars` comment 'Thông tin xe'");
         }
