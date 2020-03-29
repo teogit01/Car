@@ -16,8 +16,9 @@ class CarsTable extends Migration
         if (!Schema::hasTable('cars')) {
             Schema::create('cars', function (Blueprint $table) {
                 $table->increments('car_id')->comment('id');
+                $table->string('car_code', 12)->comment('mã xe');
                 $table->string('car_name')->comment('tên xe');
-                $table->text('car_description')->comment('mô tả khoa');
+                $table->text('car_description')->comment('mô tả xe');
 
                 // log time
                 $table->timestamp('created_at')
@@ -31,9 +32,10 @@ class CarsTable extends Migration
                 $table->timestamp('deleted_at')
                     ->nullable()
                     ->comment('ngày xóa tạm');
-                
+                // Setting unique
+                $table->unique(['car_code']);
             });
-            DB::statement("ALTER TABLE `cars` comment 'Thông tin xe'");
+            DB::statement("ALTER TABLE `cars` comment 'Thông tin bảng xe'");
         }
     }
 
