@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CarsTable extends Migration
+class UsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,14 @@ class CarsTable extends Migration
      */
     public function up()
     {
-        if (!Schema::hasTable('cars')) {
-            Schema::create('cars', function (Blueprint $table) {
-                $table->increments('car_id')->comment('id');
-                $table->integer('user_id')->unsigned()->comment('id user');
-                $table->integer('car_models_id')->unsigned()->comment('id loại xe');
-                $table->string('car_name')->comment('tên xe');
-                $table->string('image')->comment('hình xe');
-                $table->decimal('rental_costs')->comment('giá thuê');
-                $table->integer('status')->comment('trạng thái');
-                $table->text('car_description')->comment('mô tả xe');
+        if (!Schema::hasTable('users')) {
+            Schema::create('users', function (Blueprint $table) {
+                $table->increments('user_id')->comment('id');
+                $table->string('username')->comment('tên đăng nhập');
+                $table->string('password')->comment('mật khẩu');
+                $table->string('name')->comment('họ và tên');
+                $table->string('address')->comment('địa chỉ');
+                $table->integer('level')->comment('phân loại người dùng');
 
                 // log time
                 $table->timestamp('created_at')
@@ -36,8 +34,10 @@ class CarsTable extends Migration
                 $table->timestamp('deleted_at')
                     ->nullable()
                     ->comment('ngày xóa tạm');
+                // Setting unique
+                $table->unique(['username']);
             });
-            DB::statement("ALTER TABLE `cars` comment 'Thông tin bảng xe'");
+            DB::statement("ALTER TABLE `users` comment 'Thông tin người dùng'");
         }
     }
 
