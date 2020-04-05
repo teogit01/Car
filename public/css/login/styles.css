@@ -1,0 +1,47 @@
+*{
+	margin: 0;
+	padding: 5px;
+}
+
+h1 {
+	color: red;
+}
+body{
+	background-color: black;
+}
+
+.main{
+	color: #ddd;
+	width: 500px;
+	height: 700px;
+	ackground-color: #7293A0;
+	margin: auto;
+	font-family: sans-serif;
+	ackground: rgb(3,125,149);
+	ackground: radial-gradient(circle, rgba(3,125,149,1) 19%, rgba(5,92,113,1) 98%);
+
+}
+.main h2 {
+	text-align: center;
+	font-size: 50px;
+}
+.logo{
+
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	transform: translateX(-15px);
+
+}
+.logo img{
+	width: 150px;
+	height: 150px;
+}
+::placeholder {
+  color: red;
+}
+label{
+	font-style: italic;
+	font-size: 20px;
+}
