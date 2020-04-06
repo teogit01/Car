@@ -18,8 +18,8 @@ class UsersTable extends Migration
                 $table->increments('user_id')->comment('id');
                 $table->string('username')->comment('tên đăng nhập');
                 $table->string('password')->comment('mật khẩu');
-                $table->string('name')->comment('họ và tên');
-                $table->string('address')->comment('địa chỉ');
+                $table->string('name')->nullable()->comment('họ và tên');
+                $table->string('address')->nullable()->comment('địa chỉ');
                 $table->integer('level')->comment('phân loại người dùng');
 
                 // log time
