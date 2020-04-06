@@ -82,32 +82,6 @@ class BaseModel extends Model
         }
     }
 
-    // use on api
-    public function api_first(Request $request)
-    {
-        return $this->base_first($request);
-    }
-
-    public function api_index(Request $request)
-    {
-        return $this->base_index($request);
-    }
-
-    public function api_insert(Request $request)
-    {
-        return $this->base_insert($request);
-    }
-
-    public function api_update(Request $request)
-    {
-        return $this->base_update($request);
-    }
-
-    public function api_delete(Request $request)
-    {
-        return $this->base_delete($request);
-    }
-
     // use on web
     public function web_first(Request $request)
     {
