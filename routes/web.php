@@ -16,3 +16,16 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/login','login@index');
+route::get('/register','login@register');
+route::post('/register','login@postRegister')->name('postRegister');
+
+route::prefix('/admin')->group(function(){
+	route::get('/','adminController@index');	
+
+	route::get('/typecar_add','TypeCarController@getAdd');
+	route::post('/typecar_add','TypeCarController@getAdd');
+
+
+});
