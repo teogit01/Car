@@ -27,5 +27,8 @@ route::prefix('/admin')->group(function(){
 	route::get('/typecar_add','TypeCarController@getAdd');
 	route::post('/typecar_add','TypeCarController@getAdd');
 
+	route::get('/car_add','CarController@getAdd');
+	route::post('/car_add','CarController@getAdd');
+
 
 });
