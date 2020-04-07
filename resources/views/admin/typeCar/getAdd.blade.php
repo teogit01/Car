@@ -110,6 +110,14 @@
 							<a href="#">delete</a>
 						</td>
 					</tr>
+					</tr><tr>
+						<td>01</td>
+						<td>name</td>
+						<td>
+							<a href="#">edit,</a>
+							<a href="#">delete</a>
+						</td>
+					</tr>
 				</tbody>
 				
 			</table>
