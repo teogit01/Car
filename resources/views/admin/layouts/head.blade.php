@@ -9,7 +9,7 @@
   <!-- Ionicons -->
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <!-- Tempusdominus Bbootstrap 4 -->
-  <link rel="stylesheet" href="{{asset('src/admin/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css"')}}>
+  <link rel="stylesheet" href="{{asset('src/admin/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css')}}">
   <!-- iCheck -->
   <link rel="stylesheet" href="{{asset('src/admin/plugins/icheck-bootstrap/icheck-bootstrap.min.css')}}">
   <!-- JQVMap -->
@@ -21,7 +21,7 @@
   <!-- Daterange picker -->
   <link rel="stylesheet" href="{{asset('src/admin/plugins/daterangepicker/daterangepicker.css')}}">
   <!-- summernote -->
-  <link rel="stylesheet" href="{{asset('src/admin/plugins/summernote/summernote-bs4.css">
+  <link rel="stylesheet" href="{{asset('src/admin/plugins/summernote/summernote-bs4.css')}}">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>

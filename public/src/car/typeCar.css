@@ -1,0 +1,111 @@
+*{
+	margin: 0px;
+	padding: 0px;
+}
+
+body{
+	padding:30px 30px;
+}
+
+.main{
+	display: grid;
+	--grid-template-columns: 100% 10%;
+}
+.right{
+	margin-left:5%; 
+}
+.left{
+	padding: 0 10px;
+	background-color: #fff;
+	box-shadow: 10px 10px 10px #eee;
+	--text-align: center;
+	--height: 110%;
+	overflow: scroll;
+	height: 500px;
+}
+.left table{
+	width: 100%;
+	--display: flex;
+	--flex-direction: column;
+}
+
+.tdId{
+	width: 20%;
+}
+.tdName{
+	width: 60%;
+}
+.tdAction{
+	width: 20%;	
+}
+
+.left:hover{
+	transform: translateY(3px);
+	box-shadow: 10px 10px 20px #ddd;	
+}
+
+.left td, .left th {
+   	--border: none;
+	--outline: none;
+	border-bottom: 1px solid #ddd;
+}
+.left table tr{
+	height: 60px;
+	text-align: middle;
+}
+
+.left table tr:hover{
+	background-color: #eee;
+}
+.left table thead tr:hover{
+	background-color: #fff;
+}
+.form{    
+	height: 170px;
+	padding: 0 20px;
+   --box-shadow: inset 1px 1px 10px #ddd, 10px 10px 5px #ddd;
+   box-shadow: 10px 10px 10px #ddd;
+}
+.form:hover{
+		--box-shadow: 10px 10px 1px #ddd;
+		transform: translateY(3px);
+		box-shadow: 10px 10px 20px #ddd;
+}
+
+.form input {
+	border: none;
+	border-bottom: 1px solid #ddd;
+	width: 100%;
+	margin: 10px 0;
+	padding: 0 10px;
+	text-align: center;
+}
+.form input:focus{
+	outline: none;
+}
+
+::-webkit-input-placeholder { 
+	text-align:center; 
+	font-size: 12px;
+	font-style: italic;
+}
+
+.form input:focus::placeholder {
+  color: white;
+}
+
+.button{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+.btn{
+	width: 49%;
+}
+.btn a {
+	direction: none;
+	color: white;
+}
+.header{
+	text-align: center;
+}
