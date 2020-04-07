@@ -70,11 +70,16 @@
 		</div>
 		<div class="right col-4">
 			<form class="">
-				<label>ID:</label>
-				<input class="form-control" type="text" name="code" autocomplete="off">
-				<label>Name</label>
-				<input class="form-control" type="text" name="code" autocomplete="off">
-
+				<label>Name: </label>
+				<input class="form-control" type="text" name="name" autocomplete="off">
+				<label>Model: </label>
+				<input class="form-control" type="text" name="model" autocomplete="off">
+				<label>Seating: </label>
+				<select name="seating" class="form-control">
+					<option value="2">2</option>
+					<option value="4">4</option>
+					<option value="7">7</option>
+				</select>
 				<br>
 				<button class="btn btn-secondary" style="width: 100px;">Back</button>
 				<button class="btn btn-primary" style="width: 100px;">Add</button>
