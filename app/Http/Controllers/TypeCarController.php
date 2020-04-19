@@ -6,36 +6,36 @@ use Illuminate\Http\Request;
 
 class TypeCarController extends Controller
 {
-    public function getAdd(){
-    	return view('admin.typeCar.getAdd');
-    }
-    public function postAdd (Request $request) {
-        $this->validate($request,
-        [
-            'name' => 'required|min:4|max:30|unique:car_models, car_model_name',
-            'model' => 'required|min:4|max:30|unique'
+    // public function getAdd(){
+    // 	return view('admin.typeCar.getAdd');
+    // }
+    // public function postAdd (Request $request) {
+    //     $this->validate($request,
+    //     [
+    //         'name' => 'required|min:4|max:30|unique:car_models, car_model_name',
+    //         'model' => 'required|min:4|max:30|unique'
 
-        ],
-        [
-            'name.required'=>'Bạn chưa nhập tên',
-            'name.unique'=>'Tên đã tồn tại',
-            'name.min'=>'Phải có ít nhất 4 ký tự',
-            'name.max'=>'Độ dài không quá 30 ký tự',
-            'model.required'=>'Bạn chưa nhập model',
-            'model.unique'=>'Model đã tồn tại',
-            'model.min'=>'Phải có ít nhất 4 ký tự',
-            'model.max'=>'Độ dài không quá 30 ký tự'
+    //     ],
+    //     [
+    //         'name.required'=>'Bạn chưa nhập tên',
+    //         'name.unique'=>'Tên đã tồn tại',
+    //         'name.min'=>'Phải có ít nhất 4 ký tự',
+    //         'name.max'=>'Độ dài không quá 30 ký tự',
+    //         'model.required'=>'Bạn chưa nhập model',
+    //         'model.unique'=>'Model đã tồn tại',
+    //         'model.min'=>'Phải có ít nhất 4 ký tự',
+    //         'model.max'=>'Độ dài không quá 30 ký tự'
             
-        ]);
+    //     ]);
 
-        $car_models = new car_models;
-        $car_models->car_model_name = $request->name;
-        $car_models->model = $request->model;
-        $car_models->seating = $request->seating;
-        $loai_ban->save();
+    //     $car_models = new car_models;
+    //     $car_models->car_model_name = $request->name;
+    //     $car_models->model = $request->model;
+    //     $car_models->seating = $request->seating;
+    //     $loai_ban->save();
 
-        return redirect('admin/table_type/add')->with('thongbao','Thêm thành công');
-    }
+    //     return redirect('admin/table_type/add')->with('thongbao','Thêm thành công');
+    // }
     // public function getUpdate ($id) {
     //     $khu_vuc = khu_vuc::all();
     //     $loai_ban = loai_ban::find($id);

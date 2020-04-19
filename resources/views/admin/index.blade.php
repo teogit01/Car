@@ -24,5 +24,6 @@
     </div>
 
     @include('admin/layouts/scripts')
+    @include('admin/layouts/js')
 </body>
 </html>

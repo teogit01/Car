@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CommmentsTable extends Migration
+class CarsTypeTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,13 @@ class CommmentsTable extends Migration
      */
     public function up()
     {
-        if (!Schema::hasTable('comments')) {
-            Schema::create('comments', function (Blueprint $table) {
-                $table->increments('comment_id')->comment('id');
-                $table->integer('user_id')->unsigned()->comment('user_id');
-                $table->text('content')->comment('nội dung bình luận');
-                
+        if (!Schema::hasTable('cars_type')) {
+            Schema::create('cars_type', function (Blueprint $table) {
+                $table->increments('id')->comment('id');
+                $table->string('name')->comment('tên loại xe');
+                $table->integer('seating')->comment('số chỗ ngồi');
+                $table->string('model')->comment('model');
+                $table->integer('user_id') ->nullable()->unsigned()->comment('user id');
 
                 // log time
                 $table->timestamp('created_at')
@@ -33,7 +34,7 @@ class CommmentsTable extends Migration
                     ->nullable()
                     ->comment('ngày xóa tạm');
             });
-            DB::statement("ALTER TABLE `comments` comment 'Thông tin bảng bình luận'");
+            DB::statement("ALTER TABLE `cars_type` comment 'Thông tin bảng loại xe'");
         }
     }
 

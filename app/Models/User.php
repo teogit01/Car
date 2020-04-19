@@ -3,22 +3,25 @@
 namespace App\Models;
 
 use App\Models\Base\BaseModel;
+use Illuminate\Http\Request;
 
 class User extends BaseModel
 {
     protected $table = 'users';
 
-    protected $primaryKey = 'user_id';
+    protected $primaryKey = 'id';
 
     protected $keyType = 'int';
 
     protected $fillable = [
-        'user_id',
+        'id',
         'username',
         'password',
         'name',
         'address',
-        'level',
+        'tel',
+        'user_id',
+        'user_type_id',
         'created_at',
         'updated_at',
         'deleted_at',

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class PromotionsTable extends Migration
+class CartsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,12 @@ class PromotionsTable extends Migration
      */
     public function up()
     {
-        if (!Schema::hasTable('promotions')) {
-            Schema::create('promotions', function (Blueprint $table) {
-                $table->increments('promotion_id')->comment('id');
-                $table->integer('promotion_type_id')->unsigned()->comment('id loại khuyến mãi');
-                $table->string('promotion_name')->comment('tên khuyến mãi');
+        if (!Schema::hasTable('carts')) {
+            Schema::create('carts', function (Blueprint $table) {
+                $table->increments('id')->comment('id');
+                $table->integer('user_id')->unsigned()->comment('id người dùng');
+                $table->integer('service_id')->unsigned()->comment('id dịch vụ');
+                $table->integer('car_id')->unsigned()->comment('id xe');
 
                 // log time
                 $table->timestamp('created_at')
@@ -32,7 +33,7 @@ class PromotionsTable extends Migration
                     ->nullable()
                     ->comment('ngày xóa tạm');
             });
-            DB::statement("ALTER TABLE `promotions` comment 'Thông tin bảng khuyến mãi'");
+            DB::statement("ALTER TABLE `carts` comment 'Thông tin giỏ hàng'");
         }
     }
 

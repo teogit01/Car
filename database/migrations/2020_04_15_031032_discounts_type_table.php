@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CarModelsTable extends Migration
+class DiscountsTypeTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,10 @@ class CarModelsTable extends Migration
      */
     public function up()
     {
-        if (!Schema::hasTable('car_models')) {
-            Schema::create('car_models', function (Blueprint $table) {
-                $table->increments('car_models_id')->comment('id');
-                $table->string('car_model_name')->comment('tên loại xe');
-                $table->integer('seating')->comment('số chỗ ngồi');
-                $table->string('model')->comment('model');
+        if (!Schema::hasTable('discounts_type')) {
+            Schema::create('discounts_type', function (Blueprint $table) {
+                $table->increments('id')->comment('id');
+                $table->string('name')->comment('tên loại khuyến mãi');
 
                 // log time
                 $table->timestamp('created_at')
@@ -33,7 +31,7 @@ class CarModelsTable extends Migration
                     ->nullable()
                     ->comment('ngày xóa tạm');
             });
-            DB::statement("ALTER TABLE `car_models` comment 'Thông tin bảng loại xe'");
+            DB::statement("ALTER TABLE `discounts_type` comment 'Thông tin loại khuyến mãi'");
         }
     }
 

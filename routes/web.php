@@ -24,11 +24,28 @@ route::post('/register','login@postRegister')->name('postRegister');
 route::prefix('/admin')->group(function(){
 	route::get('/','adminController@index');	
 
-	route::get('/typecar_add','TypeCarController@getAdd');
-	route::post('/typecar_add','TypeCarController@getAdd');
+	route::prefix('/cartype')->group(function(){
+		route::get('/','Master\CarTypeController@index')->name('cartype.index');
+		route::get('/add','Master\CarTypeController@getAdd')->name('cartype.add');
+		route::post('/add_tc','Master\CarTypeController@postAdd')->name('cartype.postadd');
+		Route::get('/update/{id}', 'Master\CarTypeController@getUpdate')->name('cartype.getupdate');
+    	Route::post('/update/{id}', 'Master\CarTypeController@postUpdate')->name('cartype.postupdate');
+    	Route::post('/delete/{id}', "Master\CarTypeController@delete")->name('cartype.delete');
+	});
+
+	route::prefix('/cardetail')->group(function(){
+		route::get('/','Master\CarDetailController@index')->name('cardetail.index');
+		route::get('/add','Master\CarDetailController@getAdd')->name('cardetail.add');
+		route::post('/add_cd','Master\CarDetailController@postAdd')->name('cardetail.postadd');
+		Route::get('/update/{id}', 'Master\CarDetailController@getUpdate')->name('cardetail.getupdate');
+    	Route::post('/update/{id}', 'Master\CarDetailController@postUpdate')->name('cardetail.postupdate');
+    	Route::post('/delete/{id}', "Master\CarDetailController@delete")->name('cardetail.delete');
+	});
 
 	route::get('/car_add','CarController@getAdd');
 	route::post('/car_add','CarController@getAdd');
+
+	
 
 
 });
