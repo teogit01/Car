@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class TransportsTable extends Migration
+class CarsDetailTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,17 @@ class TransportsTable extends Migration
      */
     public function up()
     {
-        if (!Schema::hasTable('transports')) {
-            Schema::create('transports', function (Blueprint $table) {
-                $table->increments('transport_id')->comment('id');
-                $table->dateTime('start_time')->comment('thời gian bắt đầu');
-                $table->dateTime('end_time')->comment('thời gian kết thúc');
+        if (!Schema::hasTable('cars_detail')) {
+            Schema::create('cars_detail', function (Blueprint $table) {
+                $table->increments('id')->comment('id');
+                $table->string('name')->comment('tên xe');
+                $table->text('image')->nullable()->comment('hình xe');
+                $table->decimal('rental', 10, 3)->comment('giá thuê');
+                $table->integer('status')->default(0)->comment('trạng thái');
+                $table->text('description')->nullable()->comment('mô tả xe');
+                $table->string('number')->comment('bản số xe');
+                $table->string('frame')->nullable()->comment('số khung');
+                $table->integer('car_type_id')->unsigned()->comment('id loại xe');
 
                 // log time
                 $table->timestamp('created_at')
@@ -32,7 +38,7 @@ class TransportsTable extends Migration
                     ->nullable()
                     ->comment('ngày xóa tạm');
             });
-            DB::statement("ALTER TABLE `transports` comment 'Thông tin bảng vận chuyển'");
+            DB::statement("ALTER TABLE `cars_detail` comment 'Thông tin bảng xe'");
         }
     }
 

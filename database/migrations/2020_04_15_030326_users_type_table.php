@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class BookCarsTable extends Migration
+class UsersTypeTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,11 @@ class BookCarsTable extends Migration
      */
     public function up()
     {
-        if (!Schema::hasTable('book_cars')) {
-            Schema::create('book_cars', function (Blueprint $table) {
-                $table->increments('book_car_id')->comment('id');
-                $table->integer('user_id')->unsigned()->comment('id user');
+        if (!Schema::hasTable('users_type')) {
+            Schema::create('users_type', function (Blueprint $table) {
+                $table->increments('id')->comment('id');
+                $table->string('name')->comment('tên loại người dùng');
+                
 
                 // log time
                 $table->timestamp('created_at')
@@ -31,7 +32,7 @@ class BookCarsTable extends Migration
                     ->nullable()
                     ->comment('ngày xóa tạm');
             });
-            DB::statement("ALTER TABLE `book_cars` comment 'Thông tin bảng đặt xe'");
+            DB::statement("ALTER TABLE `users_type` comment 'Thông tin loại người dùng'");
         }
     }
 

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class PromotionTypesTable extends Migration
+class InvoicesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,15 @@ class PromotionTypesTable extends Migration
      */
     public function up()
     {
-        if (!Schema::hasTable('promotion_types')) {
-            Schema::create('promotion_types', function (Blueprint $table) {
-                $table->increments('promotion_type_id')->comment('id');
-                $table->string('promotion_type_name')->comment('tên loại khuyến mãi');
+        if (!Schema::hasTable('invoices')) {
+            Schema::create('invoices', function (Blueprint $table) {
+                $table->increments('id')->comment('id');
+                $table->decimal('deposit', 10, 3)->comment('đặt cọc');
+                $table->string('address')->comment('địa chỉ');
+                $table->integer('delivery_id')->unsigned()->comment('id vận chuyển');
+                $table->integer('comment_id')->unsigned()->comment('id bình luận');
+                $table->integer('discount_id')->unsigned()->comment('id khuyến mãi');
+                $table->integer('user_id')->unsigned()->comment('id nhân viên');
 
                 // log time
                 $table->timestamp('created_at')
@@ -31,7 +36,7 @@ class PromotionTypesTable extends Migration
                     ->nullable()
                     ->comment('ngày xóa tạm');
             });
-            DB::statement("ALTER TABLE `promotion_types` comment 'Thông tin bảng loại khuyến mãi'");
+            DB::statement("ALTER TABLE `carts` comment 'Thông tin giỏ hàng'");
         }
     }
 

@@ -5,9 +5,9 @@ namespace App\Models;
 use App\Models\Base\BaseModel;
 use Illuminate\Http\Request;
 
-class Comment extends BaseModel
+class Service extends Model
 {
-    protected $table = 'comments';
+    protected $table = 'services';
 
     protected $primaryKey = 'id';
 
@@ -15,7 +15,8 @@ class Comment extends BaseModel
 
     protected $fillable = [
         'id',
-        'content',
+        'name',
+        'price',
         'user_id',
         'created_at',
         'updated_at',

@@ -5,9 +5,9 @@ namespace App\Models;
 use App\Models\Base\BaseModel;
 use Illuminate\Http\Request;
 
-class Comment extends BaseModel
+class CarDetail extends BaseModel
 {
-    protected $table = 'comments';
+    protected $table = 'cars_detail';
 
     protected $primaryKey = 'id';
 
@@ -15,8 +15,14 @@ class Comment extends BaseModel
 
     protected $fillable = [
         'id',
-        'content',
-        'user_id',
+        'name',
+        'image',
+        'rental',
+        'status',
+        'description',
+        'number',
+        'frame',
+        'car_type_id',
         'created_at',
         'updated_at',
         'deleted_at',
@@ -35,5 +41,10 @@ class Comment extends BaseModel
             'id' => 1
         ];
         return parent::base_update($this->request);
+    }
+
+    public function cartype()
+    {
+        return $this->belongsTo(CarType::class,'car_type_id','id');
     }
 }

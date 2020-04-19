@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CarsTable extends Migration
+class CommentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,12 @@ class CarsTable extends Migration
      */
     public function up()
     {
-        if (!Schema::hasTable('cars')) {
-            Schema::create('cars', function (Blueprint $table) {
-                $table->increments('car_id')->comment('id');
-                $table->integer('user_id')->unsigned()->comment('id user');
-                $table->integer('car_models_id')->unsigned()->comment('id loại xe');
-                $table->string('car_name')->comment('tên xe');
-                $table->string('image')->comment('hình xe');
-                $table->decimal('rental_costs')->comment('giá thuê');
-                $table->integer('status')->comment('trạng thái');
-                $table->text('car_description')->comment('mô tả xe');
+        if (!Schema::hasTable('comments')) {
+            Schema::create('comments', function (Blueprint $table) {
+                $table->increments('id')->comment('id');
+                $table->text('content')->comment('nội dung bình luận');
+                $table->integer('user_id')->unsigned()->comment('user_id');
+                
 
                 // log time
                 $table->timestamp('created_at')
@@ -37,7 +33,7 @@ class CarsTable extends Migration
                     ->nullable()
                     ->comment('ngày xóa tạm');
             });
-            DB::statement("ALTER TABLE `cars` comment 'Thông tin bảng xe'");
+            DB::statement("ALTER TABLE `comments` comment 'Thông tin bảng bình luận'");
         }
     }
 
