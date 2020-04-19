@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Http\Request;
 use App\Models\Base\BaseModel;
 
 class User extends BaseModel
@@ -24,4 +25,16 @@ class User extends BaseModel
         'deleted_at',
     ];
     public $timestamps = true;
+
+    public function __construct(){
+        $this->fillable_list = $this->fillable;
+    }
+
+    public function base_update(Request $request){
+        $this->updata_conditions = [
+            'user_id' => 1
+        ];
+        return parent::base_update($this->request);
+    }
+
 }

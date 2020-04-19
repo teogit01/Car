@@ -21,10 +21,10 @@
 					<input type="text" name="name" placeholder="Name" autocomplete="off">
 					<br><br>
 
-					<input type="text" name="user" placeholder="Username" autocomplete="off">
+					<input type="text" name="username" placeholder="Username" autocomplete="off">
 					<br><br>
 
-					<input type="text" name="pass" placeholder="PassWord" autocomplete="off">
+					<input type="text" name="password" placeholder="PassWord" autocomplete="off">
 					<br><br>
 
 					<input type="text" name="confirmPass" placeholder="ConfirmPassWord" autocomplete="off">

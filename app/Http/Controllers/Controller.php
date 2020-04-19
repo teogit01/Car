@@ -21,6 +21,7 @@ class Controller extends BaseController
 
     public $request;
     public $model = null;
+    
     public $response;
     public $only_code = true;
     public $key = 'data';

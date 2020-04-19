@@ -25,10 +25,10 @@ route::prefix('/admin')->group(function(){
 	route::get('/','adminController@index');	
 
 	route::get('/typecar_add','TypeCarController@getAdd');
-	route::post('/typecar_add','TypeCarController@getAdd');
+	route::post('/typecar_add','TypeCarController@postAdd');
 
 	route::get('/car_add','CarController@getAdd');
-	route::post('/car_add','CarController@getAdd');
+	route::post('/car_add','CarController@postAdd')->name('postAdd');
 
 
 });

@@ -18,11 +18,11 @@ class CarsTable extends Migration
                 $table->increments('car_id')->comment('id');
                 $table->integer('user_id')->unsigned()->comment('id user');
                 $table->integer('car_models_id')->unsigned()->comment('id loại xe');
-                $table->string('car_name')->comment('tên xe');
-                $table->string('image')->comment('hình xe');
-                $table->decimal('rental_costs')->comment('giá thuê');
-                $table->integer('status')->comment('trạng thái');
-                $table->text('car_description')->comment('mô tả xe');
+                $table->string('car_name')->nullable()->comment('tên xe');
+                $table->string('image')->nullable()->comment('hình xe');
+                $table->decimal('rental_costs')->nullable()->comment('giá thuê');
+                $table->integer('status')->nullable()->comment('trạng thái');
+                $table->text('car_description')->nullable()->comment('mô tả xe');
 
                 // log time
                 $table->timestamp('created_at')
