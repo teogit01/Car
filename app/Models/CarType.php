@@ -15,10 +15,10 @@ class CarType extends BaseModel
 
     protected $fillable = [
         'id',
+        'code',
         'name',
         'seating',
         'model',
-        'user_id',
         'created_at',
         'updated_at',
         'deleted_at',

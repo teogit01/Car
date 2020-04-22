@@ -15,6 +15,7 @@ class CarDetail extends BaseModel
 
     protected $fillable = [
         'id',
+        'code',
         'name',
         'image',
         'rental',
@@ -22,6 +23,7 @@ class CarDetail extends BaseModel
         'description',
         'number',
         'frame',
+        'user_id',
         'car_type_id',
         'created_at',
         'updated_at',
