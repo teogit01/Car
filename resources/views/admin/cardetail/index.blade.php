@@ -2,22 +2,15 @@
 @section('content')
 
 <style type="text/css">
-    #wrapper-content {
-        width: 100%;
-    }
+    #wrapper-content { width: 100%; }
     table { width: 100%; color: black }
     table td, table th{
         border-bottom: 1px solid #ddd;
         line-height: 40px;
         padding-left: 15px;
     }    
-    table thead {
-        background-color:#fff;
-        border-radius: 10px;
-    }
-    .showContent{
-        box-shadow: 1px 1px 10px #ddd;
-    }
+    table thead { background-color:#fff; border-radius: 10px; }
+    .showContent{ box-shadow: 1px 1px 10px #ddd; }
     .action { visibility: hidden; }
     table tr:hover .action { visibility: visible; }
     table tbody tr:hover { background-color: #fff; box-shadow: 1px 1px 20px #ddd; color: green }
