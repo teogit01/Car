@@ -20,7 +20,6 @@ class User extends BaseModel
         'name',
         'address',
         'tel',
-        'user_id',
         'user_type_id',
         'created_at',
         'updated_at',

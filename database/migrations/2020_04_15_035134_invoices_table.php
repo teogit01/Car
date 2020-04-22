@@ -18,7 +18,9 @@ class InvoicesTable extends Migration
                 $table->increments('id')->comment('id');
                 $table->decimal('deposit', 10, 3)->comment('đặt cọc');
                 $table->string('address')->comment('địa chỉ');
-                $table->integer('delivery_id')->unsigned()->comment('id vận chuyển');
+                $table->dateTime('time_start')->comment('thời gian bắt đầu');
+                $table->dateTime('time_end')->comment('thời gian kết thúc');
+                $table->integer('status_id')->unsigned()->comment('id tình trạng');
                 $table->integer('comment_id')->unsigned()->comment('id bình luận');
                 $table->integer('discount_id')->unsigned()->comment('id khuyến mãi');
                 $table->integer('user_id')->unsigned()->comment('id nhân viên');
@@ -36,7 +38,7 @@ class InvoicesTable extends Migration
                     ->nullable()
                     ->comment('ngày xóa tạm');
             });
-            DB::statement("ALTER TABLE `carts` comment 'Thông tin giỏ hàng'");
+            DB::statement("ALTER TABLE `invoices` comment 'Thông tin phiếu đặt'");
         }
     }
 

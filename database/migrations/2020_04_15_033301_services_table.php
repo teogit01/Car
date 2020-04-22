@@ -33,7 +33,7 @@ class ServicesTable extends Migration
                     ->nullable()
                     ->comment('ngày xóa tạm');
             });
-            DB::statement("ALTER TABLE `carts` comment 'Thông tin giỏ hàng'");
+            DB::statement("ALTER TABLE `services` comment 'Thông tin dịch vụ'");
         }
     }
 
