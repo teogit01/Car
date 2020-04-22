@@ -31,3 +31,8 @@
 <script src="{{asset('/src/admin/dist/js/pages/dashboard.js')}}"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{asset('/src/admin/dist/js/demo.js')}}"></script>
+<!-- DataTables -->
+<script src="{{asset('/src/admin/plugins/datatables/jquery.dataTables.min.js')}}"></script>
+<script src="{{asset('/src/admin/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js')}}"></script>
+<script src="{{asset('/src/admin/plugins/datatables-responsive/js/dataTables.responsive.min.js')}}"></script>
+<script src="{{asset('/src/admin/plugins/datatables-responsive/js/responsive.bootstrap4.min.js')}}"></script>

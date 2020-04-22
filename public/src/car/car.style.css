@@ -50,7 +50,7 @@ select {
 select:focus {
  	--display: none;
 	--background-color: red;
-	width: 80%;
+	width: 80%;		
 }
 
 .main .right .head-form input, .main .right .head-form select{

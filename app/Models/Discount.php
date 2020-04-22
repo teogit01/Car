@@ -5,9 +5,9 @@ namespace App\Models;
 use App\Models\Base\BaseModel;
 use Illuminate\Http\Request;
 
-class Comment extends BaseModel
+class Discount extends Model
 {
-    protected $table = 'comments';
+    protected $table = 'discounts';
 
     protected $primaryKey = 'id';
 
@@ -15,8 +15,11 @@ class Comment extends BaseModel
 
     protected $fillable = [
         'id',
-        'content',
+        'name',
+        'start',
+        'end',
         'user_id',
+        'discount_type_id',
         'created_at',
         'updated_at',
         'deleted_at',

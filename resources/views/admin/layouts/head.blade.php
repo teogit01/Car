@@ -24,4 +24,12 @@
   <link rel="stylesheet" href="{{asset('src/admin/plugins/summernote/summernote-bs4.css')}}">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+  <!-- DataTables -->
+  <link rel="stylesheet" href="{{asset('src/admin/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css')}}">
+  <link rel="stylesheet" href="{{asset('src/admin/plugins/datatables-responsive/css/responsive.bootstrap4.min.css')}}">
+  <!-- fontawesome -->
+  <link rel="stylesheet" type="text/css" href="{{asset('fontawesome/css/all.css')}}">
+  <!-- jQuery -->
+  <script src="https://kit.fontawesome.com/d1bfbbdece.js" crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
