@@ -7,7 +7,8 @@ use App\Models\User;
 
 class login extends Controller
 {
-	public function __construct()
+ 
+	 public function __construct()
     {
         parent::__construct();
     }
@@ -20,23 +21,18 @@ class login extends Controller
     	return view('login.register');
     }
 
-    public function postRegister(Request $req){
-    	$config = [
+    public function postRegister(Request $request){
+    	
+      $config = [
     		'model' => new User(),
-    		'request' => $req,
+    		'request' => $request,
     	];
     	
-   		$user = new User();
-
-   		$user->username = $req->user ? $req->user : '';
-   		$user->password = $req->password ? $req->password : '';
-   		$user->name = $req->name ? $req->name : '';
-  		$user->address = $req->address ? $req->address : '';
-  		$user->level = 0;
-  		
-  		$user->save();
-  		dd($user);
-   		return $user;
+      $this->config($config);
+    
+      $data = $this->model->web_insert($this->request);
+   		
+      return back();
 
     }
 }

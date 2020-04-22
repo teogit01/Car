@@ -1,89 +1,87 @@
-@extends('admin.index')
+@extends('admin/index')
 @section('content')
-<style>
-    body{
-        font-size: 12px!important;
+
+<style type="text/css">
+    #wrapper-content {
+        width: 100%;
     }
+    table { width: 100%; color: black }
+    table td, table th{
+        border-bottom: 1px solid #ddd;
+        line-height: 40px;
+        padding-left: 15px;
+    }    
+    table thead {
+        background-color:#fff;
+        border-radius: 10px;
+    }
+    .showContent{
+        box-shadow: 1px 1px 10px #ddd;
+    }
+    .action { visibility: hidden; }
+    table tr:hover .action { visibility: visible; }
+    table tbody tr:hover { background-color: #fff; box-shadow: 1px 1px 20px #ddd; color: green }
+    span:hover { cursor: pointer; }
 </style>
-<div id="page-wrapper">
+
+<meta name="csrf-token" content="{{ csrf_token() }}">
+
+<div id="wrapper-content">
     @if($message = Session::get('success'))
-        <div class="alert alert-success" role="alert">
-            <p>{{$message}}</p>
-            <p class="mb-0"></p>
+        <div class="alert alert-success" role="alert" id='showMessage'
+            style="position: fixed;width: 50%;padding: 7px">
+            <span>{{$message}}</span>
         </div>
     @endif
-        <div class="container-fluid">
-            <div class="white-box">
-                <div class="row">
-                    <div class="col-sm-12">
-                        <div class="white-box">
-                            <h3 class="box-title">Xe:</h3>
-                            <br>
-                            {{-- @if (Auth::user()->hasRole('Admin')) --}}
-                                <a style="width:80px" href="{{route('cardetail.add')}}" class="btn btn-success waves-effect waves-light m-r-10">Thêm</a>
-                            {{-- @endif --}}
-                            <br>
-                            <br>
-                            <br>
-                            <div class="table-responsive">
-                                <table style="font-size:12px" id="myTable" class="table table-striped dataTable no-footer">
-                                    <thead>
-                                        <tr>
-                                            <th>ID:</th>
-                                            <th>Tên:</th>
-                                            <th>Giá:</th>
-                                            <th>Biến số:</th>
-                                            <th>Số khung:</th>
-                                            <th>Loại xe:</th>
-                                            <th>Ảnh:</th>
-                                            <th>Trạng thái:</th>
-                                            <th>Miêu tả:</th>
-                                            {{-- @if (Auth::user()->hasRole('Admin')) --}}
-                                                <th>Chức năng</th>
-                                            {{-- @else --}}
-                                                {{-- <th></th> --}}
-                                            {{-- @endif --}}
-                                        </tr>
-                                    </thead>
-                                    <tbody  style="font-size: 12px">
-                                        @foreach ($data as $item)
-                                            <tr>
-                                                <td>{{$item['id']}}</td>
-                                                <td>{{$item['name']}}</td>
-                                                <td>{{$item['rental']}}</td>
-                                                <td>{{$item['number']}}</td>
-                                                <td>{{$item['frame']}}</td>
-                                                <td>{{$item->cartype->name}}</td>
-                                                <td>{{$item['image']}}</td>
-                                                <td>{{$item['status']}}</td>
-                                                <td>{{$item['description']}}</td>
-                                                {{-- @if (Auth::user()->hasRole('Admin')) --}}
-                                                    <td>
-                                                        <form action="{{ route('cardetail.delete', $item->id) }}" method="post" class="delete_form">
-                                                            <a  href="{{ action('Master\CarDetailController@getUpdate',$item->id) }}" data-toggle="toolytip" data-placement="top" title="Chỉnh sửa">&nbsp;&nbsp;&nbsp;<i class="fa fa-pencil text-inverse m-r-10 fa-lg"></i></a>
-                                                            @csrf
-                                                            <button type="submit" class="btn btn-sm btn-icon btn-pure btn-outline delete-row-btn" data-toggle="tooltip" data-placement="top" title="Xóa"><i class="fal fa-trash-alt fa-lg"></i></button>
-                                                        </form>
-                                                    </td>
-                                                {{-- @else --}}
-                                                    {{-- <td></td> --}}
-                                                {{-- @endif --}}
-                                            </tr>
-                                        @endforeach
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                {{-- end div col-sm-6 --}}
-                </div> 
-            {{-- end div row --}}
+    <div class="d-flex" style="justify-content: flex-end;margin: 5px;">
+            <div>
+                <a href="{{route('cardetail.add')}}"><button class="btn btn-primary" style="width: 90px;color: black;"> Thêm</button>
+                </a>
             </div>
-        {{-- end div white-box --}}
+    </div>
+    <div>
+        <div class="d-flex">
+            <select class="form-control" id='select_car'>
+                <option value="0">All</option>
+            </select>
         </div>
-    {{-- end div container-fluid --}}
+    </div>
+    <br>
+    <div class="main">
+        <div class="showContent" style="width: 100%">
+                <table class="">
+                    <thead class="">
+                        <tr>
+                            <th>#</th>
+                            <th>Ảnh</th>
+                            <th>Tên</th>
+                            <th>Biển số</th>
+                            <th>Giá</th>
+                            <th>Số lượng : {{$data->count()}}</th>
+                        </tr>
+                    </thead>
+                        @if (isset($data))
+                            @foreach($data as $index => $item)
+                                <tr ondblclick='detail({{$item->id}})'>
+                                    <td>{{$index + 1}}</td>
+                                    <td>Ảnh</td>
+                                    <td>{{$item->name}}</td>
+                                    <td>{{$item->number}}</td>
+                                    <td>{{$item->rental}}</td>
+                                    <td>
+                                        <div class="action">
+                                            <span onclick='del({{$item->id}})'>Xoá</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        @endif
+                </table>
+
+        </div>
+    </div>    
 </div>
-    {{-- end div page-wrapper --}}
+    
 @endsection
     
 @section('js')    
@@ -105,13 +103,42 @@
                 }
             });
         });
-    </script>
+
+        $(document).ready(function(){
+            setTimeout(function(){
+                $('#showMessage').hide()            
+            },1000)
+        })
+        // Function Delete
+        function del(id) {
+            const TypeCarId = $('#select_car').val()
+            $.ajax({
+                headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                type: 'post',
+                url:'http://127.0.0.1:8000/admin/cardetail/delete',
+                data : {CarId: id,TypeCarId: TypeCarId},
+                success : function(data) {
+                    $('.showContent').html(data)
+                    //alert(data)
+                },
+                error : function() {
+                    alert('error')
+                }
+            })
+        }
+        //Function Detail
+        function detail(id) {
+            window.location='http://127.0.0.1:8000/admin/cardetail/'+id;
+        }
+    </script> 
+
+    <script src="{{asset('js/car_detail.js')}}"></script>
 @endsection
 
-@section('js')
-<script>
-$(function () 
-    $('[data-toggle="tooltip"]').tooltip();
-);
-</script>
-@endsection
+
+
+
+
+

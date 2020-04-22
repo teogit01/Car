@@ -7,11 +7,16 @@
 </style>
 <div id="page-wrapper">
     @if($message = Session::get('success'))
-        <div class="alert alert-success" role="alert">
+        <div id='showMessage' class="alert alert-success" role="alert">
             <p>{{$message}}</p>
             <p class="mb-0"></p>
         </div>
     @endif
+    <form method="post" action="{{route('cartype.getData')}}">
+        @csrf
+        <label>asd</label>
+        <button type="submit">submit</button>
+    </form>
         <div class="container-fluid">
             <div class="white-box">
                 <div class="row">
@@ -77,10 +82,18 @@
 @endsection
     
 @section('js')    
+ <script type="text/javascript">
+        $(document).ready(function(){
+            setTimeout(function(){ 
+                $('#showMessage').hide()
+            }, 2000);
+        });
+</script>
     <script>
         // Sắp xếp
         $(document).ready(function() {
             $('#myTable').DataTable();
+            
         });
         // Họp thoại cảnh báo xóa
         $(document).ready(function () {
@@ -95,6 +108,7 @@
                 }
             });
         });
+
     </script>
 @endsection
 
@@ -102,6 +116,5 @@
 <script>
 $(function () 
     $('[data-toggle="tooltip"]').tooltip();
-);
 </script>
 @endsection

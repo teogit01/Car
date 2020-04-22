@@ -11,8 +11,9 @@
 
       <!-- Main Sidebar Container -->
       @include('admin/layouts/menu-left')
-
-      @include('admin/layouts/content')
+    
+      @include('admin/layouts/content')   
+    
       <!-- /.content-wrapper -->
       @include('admin/layouts/footer')
     

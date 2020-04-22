@@ -27,6 +27,22 @@ class CarTypeController extends Controller
         return view('admin.cartype.index', ['data' => $data]);
     }
 
+
+    // get data đổ ra car detail
+    public function getData (Request $request) {
+
+        $config = [
+            'model' => new CarType(),
+            'request' => $request,
+        ];
+        $this->config($config);
+        
+        $data = $this->model->web_index($this->request);
+
+        return $data;
+    }
+
+
     public function getAdd (Request $request)
     {
         return view('admin.cartype.add');

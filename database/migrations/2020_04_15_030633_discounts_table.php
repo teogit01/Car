@@ -21,7 +21,6 @@ class DiscountsTable extends Migration
                 $table->dateTime('end')->comment('thời gian kết thúc');
                 $table->integer('user_id')->unsigned()->comment('id người dùng');
                 $table->integer('discount_type_id')->unsigned()->comment('id loại khuyến mãi');
-
                 // log time
                 $table->timestamp('created_at')
                     ->default(DB::raw('CURRENT_TIMESTAMP'))

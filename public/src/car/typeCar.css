@@ -22,6 +22,7 @@ body{
 	--height: 110%;
 	overflow: scroll;
 	height: 500px;
+	transition: all 0.3s;
 }
 .left table{
 	width: 100%;
@@ -65,6 +66,7 @@ body{
 	padding: 0 20px;
    --box-shadow: inset 1px 1px 10px #ddd, 10px 10px 5px #ddd;
    box-shadow: 10px 10px 10px #ddd;
+   transition: all 0.3s;
 }
 .form:hover{
 		--box-shadow: 10px 10px 1px #ddd;
