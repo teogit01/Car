@@ -2,12 +2,12 @@
 
 namespace App\Models;
 
-use App\Models\Base\BaseModel;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 
-class Invoice extends Model
+class Status extends Model
 {
-    protected $table = 'invoices';
+    protected $table = 'statuses';
 
     protected $primaryKey = 'id';
 
@@ -15,14 +15,7 @@ class Invoice extends Model
 
     protected $fillable = [
         'id',
-        'deposit',
-        'address',
-        'time_start',
-        'time_end',
-        'status_id',
-        'comment_id',
-        'discount_id',
-        'user_id',
+        'name',
         'created_at',
         'updated_at',
         'deleted_at',
