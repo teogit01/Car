@@ -12,6 +12,8 @@ use Exception;
 use Illuminate\Support\Facedes\Validation;
 use App\Http\Controllers\Base\BaseResponseweb;
 
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
 
 class Controller extends BaseController
 {
@@ -46,7 +48,9 @@ class Controller extends BaseController
             foreach($imgs as $index => $img ) {
                 $name = Str::random(5).'_'.$img->getClientOriginalName();
                 $img->move($path,$name);
-                $this->nameImgs[] = $img->getClientOriginalName();
+                //$img->storeAs('public/img/carDetail', $name);
+                //$img->store('public/img/carDetail');
+                $this->nameImgs[] = $name;
             }
         }  
         return;

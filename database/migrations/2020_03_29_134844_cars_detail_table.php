@@ -24,8 +24,8 @@ class CarsDetailTable extends Migration
                 $table->text('description')->nullable()->comment('mô tả xe');
                 $table->string('number')->comment('bản số xe');
                 $table->string('frame')->nullable()->comment('số khung');
-                $table->integer('car_type_id')->unsigned()->comment('id loại xe');
-                $table->integer('user_id')->unsigned()->comment('id người dùng');
+                $table->integer('car_type_id')->nullable()->unsigned()->comment('id loại xe');
+                $table->integer('user_id')->nullable()->unsigned()->comment('id người dùng');
 
                 // log time
                 $table->timestamp('created_at')

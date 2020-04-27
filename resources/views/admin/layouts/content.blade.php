@@ -1,4 +1,4 @@
-<div class="content-wrapper" style="background-color: #fff">
+<div class="content-wrapper" style="background-color: #fff;">
 
   <!-- Main content -->
   <section class="content">

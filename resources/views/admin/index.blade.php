@@ -2,18 +2,24 @@
 <html>
 <head>
   @include('admin/layouts/head')
+  <style type="text/css">
+    body { width: 100% }
+    .wrapper {  }
+  </style>
 </head>
 <body>
   <body class="hold-transition sidebar-mini layout-fixed">
     <div class="wrapper">
       <!-- Navbar -->
+
+      @include('admin/layouts/menu-left')
+      
       @include('admin/layouts/header')
+      
 
       <!-- Main Sidebar Container -->
-      @include('admin/layouts/menu-left')
-    
+
       @include('admin/layouts/content')   
-    
       <!-- /.content-wrapper -->
       @include('admin/layouts/footer')
     
@@ -26,5 +32,6 @@
 
     @include('admin/layouts/scripts')
     @include('admin/layouts/js')
+    
 </body>
 </html>

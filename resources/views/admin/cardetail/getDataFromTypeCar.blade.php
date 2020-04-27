@@ -12,7 +12,7 @@
               </thead>
               <tbody>
                 @foreach($data as $index => $item)
-                    <tr>
+                    <tr ondblclick='detail({{$item->id}})'>
                         <th>{{$index+1}}</th>
                         <td>Ảnh</td>
                         <td>{{$item->name}}</td>
@@ -20,7 +20,7 @@
                         <td>{{$item->rental}}</td>
                         <td>
                             <div class="action">
-                              <span onclick='del({{$item->id}})'>Xoá</span>
+                              <span class="del" onclick='del({{$item->id}})'>Xoá</span>
                             </div>
                         </td>
                     </tr>
