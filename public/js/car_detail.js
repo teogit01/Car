@@ -6,7 +6,8 @@
           	},
 			//_token: "{{csrf_token()}}",
 			type: 'post',
-			url:  'http://127.0.0.1:8000/admin/cartype/getData',
+			url:  path + 'admin/cartype/getData',
+			//http://127.0.0.1:8000/admin/cartype/getData
 			dataType:'json',
 			data:{},
 			contentType: false,
@@ -34,7 +35,7 @@
           			'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
           		},
 				type: 'post',
-				url: 'http://127.0.0.1:8000/admin/cardetail/getDataFromTypeCar',
+				url: path + 'admin/cardetail/getDataFromTypeCar',
 				data:{idTypeCar: idTypeCar},
 				success: function(data){
 					$('.showContent').html(data)

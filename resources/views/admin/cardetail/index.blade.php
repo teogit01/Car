@@ -63,14 +63,13 @@
                                     <td>{{$item->rental}}</td>
                                     <td>
                                         <div class="action">
-                                            <span onclick='del({{$item->id}})'>Xoá</span>
+                                            <span class="del" onclick='del({{$item->id}})'>Xoá</span>
                                         </div>
                                     </td>
                                 </tr>
                             @endforeach
                         @endif
                 </table>
-
         </div>
     </div>    
 </div>
@@ -78,52 +77,36 @@
 @endsection
     
 @section('js')    
-    <script>
-        // Sắp xếp
-        $(document).ready(function() {
-            $('#myTable').DataTable();
-        });
-        // Họp thoại cảnh báo xóa
-        $(document).ready(function () {
-            $('.delete_form').on('submit',function(){
-                if(confirm('Bạn có muốn xóa xe này không?'))
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            });
-        });
-
+    <script>        
+        // Function Delete
+        function del(id) {
+            const TypeCarId = $('#select_car').val()
+            if (confirm('Bạn có muốn xóa xe này không?')){
+                $.ajax({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    type: 'post',
+                    url: path +'admin/cardetail/delete',
+                    data : {CarId: id,TypeCarId: TypeCarId},
+                    success : function(data) {
+                        $('.showContent').html(data)
+                        //alert(data)
+                    },
+                    error : function() {
+                        alert('error')
+                    }
+                })     
+            }
+        }
         $(document).ready(function(){
             setTimeout(function(){
                 $('#showMessage').hide()            
             },1000)
         })
-        // Function Delete
-        function del(id) {
-            const TypeCarId = $('#select_car').val()
-            $.ajax({
-                headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                },
-                type: 'post',
-                url:'http://127.0.0.1:8000/admin/cardetail/delete',
-                data : {CarId: id,TypeCarId: TypeCarId},
-                success : function(data) {
-                    $('.showContent').html(data)
-                    //alert(data)
-                },
-                error : function() {
-                    alert('error')
-                }
-            })
-        }
         //Function Detail
         function detail(id) {
-            window.location='http://127.0.0.1:8000/admin/cardetail/'+id;
+            window.location= path+'admin/cardetail/'+id;
         }
     </script> 
 

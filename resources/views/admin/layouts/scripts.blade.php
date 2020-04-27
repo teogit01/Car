@@ -36,3 +36,6 @@
 <script src="{{asset('/src/admin/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js')}}"></script>
 <script src="{{asset('/src/admin/plugins/datatables-responsive/js/dataTables.responsive.min.js')}}"></script>
 <script src="{{asset('/src/admin/plugins/datatables-responsive/js/responsive.bootstrap4.min.js')}}"></script>
+<script type="text/javascript">
+	var path = "{{asset('/')}}";
+</script>

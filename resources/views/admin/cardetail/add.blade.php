@@ -30,6 +30,10 @@
         <div class="col-sm-11 m-auto form">
             <form action="{{route('cardetail.postadd')}}" method="POST" enctype="multipart/form-data">
                 @csrf
+                 <div class="form-group">
+                        <label for="name" class="control-label">Tên</label>
+                        <input type="text" class="form-control" id="code" name="code" placeholder="Code..." autocomplete="off">
+                </div>
                 <div class="form-group">
                         <label for="name" class="control-label">Tên</label>
                         <input type="text" class="form-control" id="name" name="name" placeholder="VIOS..." autocomplete="off">

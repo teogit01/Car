@@ -44,12 +44,21 @@ route::prefix('/admin')->group(function(){
 		Route::get('/update/{id}', 'Master\CarDetailController@getUpdate')->name('cardetail.getupdate');
     	Route::post('/update/{id}', 'Master\CarDetailController@postUpdate')->name('cardetail.postupdate');
     	Route::post('/delete', "Master\CarDetailController@delete")->name('cardetail.delete');
+    	
     	//ajax
     	route::post('/getDataFromTypeCar',"Master\CarDetailController@getDataFromTypeCar");
 
     	//Xem chi tiet xe cu the
     	route::get('/{id}','Master\CarDetailController@detail')->name('cardetail');
-   
+
+    	//EDIT
+    	route::post('/edit/{id}','Master\CarDetailController@edit')->name('cardetail.edit');    	
+  		route::post('/image/edit','Master\CarDetailController@imageEdit');  		
+  		route::post('/image/add','Master\CarDetailController@imageAdd');  		
+  		// reset image delete
+  		route::post('/image/edit/resetimagedel','Master\CarDetailController@resetImageDel');
 	});
+//	Test File
+	route::get('/file','adminController@file');
 
 });

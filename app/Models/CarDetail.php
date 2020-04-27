@@ -31,8 +31,7 @@ class CarDetail extends BaseModel
     ];
     public $timestamps = true;
 
-    public function __construct()
-    {
+    public function __construct() {
         $this->fillable_list = $this->fillable;         // trường fillable sẽ truyền vào biến fillable_list
     }
 
@@ -42,6 +41,7 @@ class CarDetail extends BaseModel
         $this->update_conditions = [
             'id' => 1
         ];
+        
         return parent::base_update($this->request);
     }
 

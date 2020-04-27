@@ -32,4 +32,6 @@
   <!-- jQuery -->
   <script src="https://kit.fontawesome.com/d1bfbbdece.js" crossorigin="anonymous"></script>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  
+  <script src="//cdn.ckeditor.com/4.14.0/basic/ckeditor.js"></script>
 </head>
