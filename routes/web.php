@@ -60,5 +60,8 @@ route::prefix('/admin')->group(function(){
 	});
 //	Test File
 	route::get('/file','adminController@file');
+});
 
+route::prefix('/customer')->group(function(){
+	route::get('/','Customer\CustomerController@index');
 });

@@ -7,9 +7,11 @@ Admin
 		g,p	:	cartype/update/{id}	-> Update loai xe
 		post:	cartype/delete/{id} -> Xoá loại xe
 	
-	cardetail
+		
 
 		get	: 	cardetail/add 			-> Thêm xe cụ thể
 		post: 	cardetail/add_cd 		-> Thêm xe cụ thể
 		g,p	:	cardetail/update/{id}	-> Update xe
 		post:	cardetail/delete/{id}	-> Xoá xe	
+
+		
