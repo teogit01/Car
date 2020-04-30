@@ -5,7 +5,7 @@ namespace App\Models;
 use App\Models\Base\BaseModel;
 use Illuminate\Http\Request;
 
-class Service extends Model
+class Service extends BaseModel
 {
     protected $table = 'services';
 
