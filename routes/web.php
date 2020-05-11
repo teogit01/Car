@@ -17,7 +17,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/login','login@index');
+Route::get('/login','login@index')->name('indexLogin');
+Route::post('/login','login@postLogin')->name('postLogin');
 route::get('/register','login@register');
 route::post('/register','login@postRegister')->name('postRegister');
 

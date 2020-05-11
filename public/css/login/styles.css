@@ -11,14 +11,14 @@ body{
 }
 
 .main{
-	color: #ddd;
+	--color: #ddd;
 	width: 500px;
 	height: 700px;
-	ackground-color: #7293A0;
+	--background-color: #7293A0;
 	margin: auto;
 	font-family: sans-serif;
-	ackground: rgb(3,125,149);
-	ackground: radial-gradient(circle, rgba(3,125,149,1) 19%, rgba(5,92,113,1) 98%);
+	--background: rgb(3,125,149);
+	--background: radial-gradient(circle, rgba(3,125,149,1) 19%, rgba(5,92,113,1) 98%);
 
 }
 .main h2 {

@@ -4,7 +4,6 @@ namespace App\Models;
 
 use Illuminate\Http\Request;
 use App\Models\Base\BaseModel;
-use Illuminate\Http\Request;
 
 class User extends BaseModel
 {
