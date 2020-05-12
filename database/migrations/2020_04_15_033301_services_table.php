@@ -18,7 +18,7 @@ class ServicesTable extends Migration
                 $table->increments('id')->comment('id');
                 $table->string('name')->comment('tên dịch vụ');
                 $table->string('price')->comment('giá dịch vụ');
-                $table->integer('user_id')->unsigned()->comment('id người dùng');
+                $table->integer('user_id')->nullable()->unsigned()->comment('id người dùng');
 
                 // log time
                 $table->timestamp('created_at')
