@@ -17,10 +17,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/login','login@index')->name('indexLogin');
+Route::get('/login','login@index')->name('login');
 Route::post('/login','login@postLogin')->name('postLogin');
 route::get('/register','login@register');
 route::post('/register','login@postRegister')->name('postRegister');
+Route::get('/logout','login@logout')->name('logout');
 
 route::prefix('/admin')->group(function(){
 	route::get('/','adminController@index');	
@@ -76,3 +77,6 @@ route::prefix('/admin')->group(function(){
 route::prefix('/customer')->group(function(){
 	route::get('/','Customer\CustomerController@index');
 });
+
+
+Route::get('/add-to-cart/{id}', 'CartController@add')->name('cart.add')->middleware('auth');

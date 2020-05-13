@@ -116,5 +116,6 @@
             <i class="fas fa-th-large"></i>
           </a>
         </li>
+        <a href="{{route('logout')}}">Logout</a>
       </ul>
     </nav>

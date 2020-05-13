@@ -10,13 +10,14 @@ use App\Models\User;
 use Cookie;
 //use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 
 class login extends Controller
 {
  
 	 public function __construct()
     {
-        parent::__construct();
+        //parent::__construct();
     }
 
     public function index(){
@@ -53,24 +54,19 @@ class login extends Controller
 
       $username = $request->user;
       $password = $request->pass;
-
-      $user = User::where('username',$username)->first();
-      if ($user){
-        if ( Hash::check($password,$user->password) ){
-          if ( $user->user_type_id == 0 ){
-        
+      if( Auth::attempt(['username' => $username, 'password' =>$password])) {
 
 
-            return view('admin.index');
-            
+        return redirect('admin');
+      } else {
+          return redirect('login');
 
-          } else {
-            //custom
-            return view('custom');
-          }
-        }
       }
-      return "Sai ten";
+    }
+
+    public function logout(){
+      Auth::logout();
+      return redirect('login');
     }
 }
 

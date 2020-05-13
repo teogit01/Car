@@ -35,6 +35,7 @@ class Controller extends BaseController
     public function __construct(){
     	
     	$this->response = new BaseResponseweb();
+        $this->middleware('auth');
     }
 
     public function config($option){
