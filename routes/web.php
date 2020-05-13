@@ -61,6 +61,16 @@ route::prefix('/admin')->group(function(){
 	});
 //	Test File
 	route::get('/file','adminController@file');
+
+	// SERVICE
+	route::prefix('/service')->group(function(){
+		route::get('/','Master\ServiceController@index')->name('service.index');
+		route::get('/add','Master\ServiceController@getAdd')->name('service.add');
+		route::post('/add','Master\ServiceController@postAdd')->name('service.postadd');
+		Route::get('/{id}', 'Master\ServiceController@getUpdate')->name('service.getupdate');
+    	Route::post('/edit/{id}', 'Master\ServiceController@postUpdate')->name('service.postupdate');
+    	Route::post('/delete', "Master\ServiceController@delete")->name('service.delete');
+	});
 });
 
 route::prefix('/customer')->group(function(){
