@@ -7,8 +7,9 @@
 	
 	</style>
 </head>
-<body style="background: radial-gradient(circle, rgba(3,125,149,1) 19%, rgba(5,92,113,1) 98%);
-}">
+<!-- <body style="background: radial-gradient(circle, rgba(3,125,149,1) 19%, rgba(5,92,113,1) 98%);
+}"> -->
+<body>
 	<div class="main">
 		<h2>User Login</h2>
 
@@ -16,11 +17,12 @@
 			<img src="{{asset('img/login.png')}}">
 		</div>
 		<div class="main-content">
-			<form>
+			<form method="post" action="{{route('postLogin')}}">
+				@csrf
 				<label>UserName:</label>
 				<input type="text" name="user" class="form-control" placeholder="" autocomplete="off">
 				<label>Password:</label>
-				<input type="text" name="user" class="form-control" placeholder="" autocomplete="off">
+				<input type="password" name="pass" class="form-control" placeholder="" autocomplete="off">
 
 				<br>
 

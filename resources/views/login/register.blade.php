@@ -24,10 +24,10 @@
 					<input type="text" name="username" placeholder="Username" autocomplete="off">
 					<br><br>
 
-					<input type="text" name="password" placeholder="PassWord" autocomplete="off">
+					<input type="password" name="password" placeholder="PassWord" autocomplete="off">
 					<br><br>
 
-					<input type="text" name="confirmPass" placeholder="ConfirmPassWord" autocomplete="off">
+					<input type="password" name="confirmPass" placeholder="ConfirmPassWord" autocomplete="off">
 	
 					<br>
 					<br>
