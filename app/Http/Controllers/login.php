@@ -58,17 +58,7 @@ class login extends Controller
       if ($user){
         if ( Hash::check($password,$user->password) ){
           if ( $user->user_type_id == 0 ){
-            //admin
-
-            //$value = Cookie::get('name');
-            //$res = new Response();
-            //$res->withCookie('name','value',60);
-            //$value = Cookie::get('name');
-            //return $res;
-            //$response = new Response();
-            //$response->withCookie(cookie('name','giatri', 60));
-            
-            $this->checkLogin = 'admin';
+        
 
 
             return view('admin.index');
