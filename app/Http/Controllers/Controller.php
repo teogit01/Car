@@ -30,6 +30,7 @@ class Controller extends BaseController
     public $key = 'data';
     public $data =[];
     public $nameImgs = [];
+    public $checkLogin=null;
 
     public function __construct(){
     	

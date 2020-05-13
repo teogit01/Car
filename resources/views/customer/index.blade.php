@@ -58,9 +58,7 @@
     </main>
     @include('customer/layouts/footer')
     <!-- Scroll Up -->
-    <div id="back-top" >
-        <a title="Go to Top" href="#"> <i class="fas fa-level-up-alt"></i></a>
-    </div>
+    @include('customer/layouts/gototop')
 
 
     <!-- JS here -->
