@@ -27,7 +27,18 @@
                                 </ul>
                             </li>
                             <li><a href="contact.html">Contact</a></li>
-                            <li><a href="listing_details.html"><i class="fas fa-shopping-cart fa-2x"></i></a></li>
+                            <li>
+                                <a href="{{route('cart.index')}}">
+                                    <i class="fas fa-shopping-cart fa-2x"></i>
+                                    <div class="badge badge-danger">
+                                        @auth
+                                        {{Cart::session(auth()->id())->getContent()->count()}}
+                                        @else
+                                        0
+                                        @endauth
+                                    </div>
+                                </a>
+                            </li>
                             <!-- <li class="add-list"><a href="listing_details.html"><i class="fas fa-shopping-cart"></i></a></li> -->
                             <li class="login"><a href="#">
                                 <i class="ti-user"></i> Sign in or Register</a>

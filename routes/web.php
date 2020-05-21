@@ -76,7 +76,18 @@ route::prefix('/admin')->group(function(){
 
 route::prefix('/customer')->group(function(){
 	route::get('/','Customer\CustomerController@index');
+	Route::get('/add-to-cart/{cars_detail}', 'Customer\CartController@add')->name('cart.add')->middleware('auth');
+	Route::get('/cart', 'Customer\CartController@index')->name('cart.index');
+	Route::get('/cart/destroy/{itemID}', 'Customer\CartController@destroy')->name('cart.destroy')->middleware('auth');
+	Route::get('/cart/update/{itemID}', 'Customer\CartController@update')->name('cart.update')->middleware('auth');
+	Route::get('/cart/checkout', 'Customer\CartController@checkout')->name('cart.checkout')->middleware('auth');
+	Route::get('/cart/apply-coupon', 'Customer\CartController@applyCoupon')->name('cart.coupon')->middleware('auth');
+	Route::resource('orders', 'Customer\OrderController')->middleware('auth');
+
+	Route::get('paypal/checkout/{order}', 'Customer\PayPalController@getExpressCheckout')->name('paypal.checkout');
+	Route::get('paypal/checkout-success/{order}', 'Customer\PayPalController@getExpressCheckoutSuccess')->name('paypal.success');
+	Route::get('paypal/checkout-cancel', 'Customer\PayPalController@cancelPage')->name('paypal.cancel');
 });
 
 
-Route::get('/add-to-cart/{id}', 'CartController@add')->name('cart.add')->middleware('auth');
+

@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Models;
+use App\Models\Invoice;
 
 use App\Models\Base\BaseModel;
 use Illuminate\Http\Request;
@@ -33,6 +34,10 @@ class CarDetail extends BaseModel
 
     public function __construct() {
         $this->fillable_list = $this->fillable;         // trường fillable sẽ truyền vào biến fillable_list
+    }
+    public function invoice () 
+    {
+        return $this->hasMany(App\Invoice,'car_detail_id', 'id');
     }
 
     public function base_update(Request $request)

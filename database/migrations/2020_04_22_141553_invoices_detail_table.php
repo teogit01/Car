@@ -18,9 +18,11 @@ class InvoicesDetailTable extends Migration
                 $table->increments('id')->comment('id');
                 $table->integer('car_detail_id')->unsigned()->comment('id xe cụ thể');
                 $table->integer('invoice_id')->unsigned()->comment('id phiếu đặt');
-                $table->integer('service_id')->unsigned()->comment('id dịch vụ');
                 
+                $table->integer('price');
+                $table->integer('quantity');
 
+                
                 // log time
                 $table->timestamp('created_at')
                     ->default(DB::raw('CURRENT_TIMESTAMP'))
