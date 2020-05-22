@@ -55,15 +55,11 @@ class login extends Controller
       $username = $request->user;
       $password = $request->pass;
       if( Auth::attempt(['username' => $username, 'password' =>$password])) {
-
-
         return redirect('admin');
       } else {
           return redirect('login');
-
+        }
       }
-    }
-
     public function logout(){
       Auth::logout();
       return redirect('login');
