@@ -16,6 +16,9 @@ class InvoiceDetail extends Model
     protected $fillable = [
         'id',
         'car_detail_id',
+        'price',
+        'quantity',
+        'date',
         'invoice_id',
         'service_id',
         'created_at',

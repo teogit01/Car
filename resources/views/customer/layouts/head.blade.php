@@ -7,6 +7,7 @@
  <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
 
  <!-- CSS here -->
+ 
  <link rel="stylesheet" href="{{asset('src/customer/css/bootstrap.min.css')}}">
  <link rel="stylesheet" href="{{asset('src/customer/css/owl.carousel.min.css')}}">
  <link rel="stylesheet" href="{{asset('src/customer/css/slicknav.css')}}">
@@ -18,3 +19,5 @@
  <link rel="stylesheet" href="{{asset('src/customer/css/slick.css')}}">
  <link rel="stylesheet" href="{{asset('src/customer/css/nice-select.css')}}">
  <link rel="stylesheet" href="{{asset('src/customer/css/style.css')}}">
+
+ <script src="https://kit.fontawesome.com/d1df38452b.js" crossorigin="anonymous"></script>
