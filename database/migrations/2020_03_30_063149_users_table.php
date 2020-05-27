@@ -20,8 +20,8 @@ class UsersTable extends Migration
                 $table->string('password')->comment('mật khẩu');
                 $table->string('name')->nullable()->comment('họ và tên');
                 $table->string('address')->nullable()->comment('địa chỉ');
-                $table->string('tel')->comment('sdt');
-                $table->integer('user_type_id')->unsigned()->comment('id loại người dùng');
+                $table->string('tel')->nullable()->comment('sdt');
+                $table->integer('user_type_id')->nullable()->unsigned()->comment('id loại người dùng');
                 // log time
                 $table->timestamp('created_at')
                     ->default(DB::raw('CURRENT_TIMESTAMP'))

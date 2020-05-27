@@ -10,7 +10,7 @@
                 </div>
                 <div class="location-details">
                     <p>{{$item->name}}</p>
-                    <a href="#" class="location-btn">Giá <i class="ti-plus"></i>{{$item->rentail}}</a>
+                    <a href="{{route('cart.add', $item->id)}}" class="location-btn">Thêm<i class="ti-plus"></i>{{$item->rentail}}</a>
                 </div>
             </div>
         </div>
