@@ -5,7 +5,7 @@ namespace App\Models;
 use App\Models\Base\BaseModel;
 use Illuminate\Http\Request;
 
-class Discount extends Model
+class Discount extends BaseModel
 {
     protected $table = 'discounts';
 
@@ -38,5 +38,15 @@ class Discount extends Model
             'id' => 1
         ];
         return parent::base_update($this->request);
+    }
+
+    public function discountType()
+    {
+        $this->belongsTo(DiscountType::class, 'discount_type_id', 'id');
+    }
+
+    public function user()
+    {
+        $this->belongsTo(User::class, 'user_id', 'id');
     }
 }

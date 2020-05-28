@@ -2,10 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
+use App\Models\Base\BaseModel;
 use Illuminate\Http\Request;
 
-class Status extends Model
+class Status extends BaseModel
 {
     protected $table = 'statuses';
 

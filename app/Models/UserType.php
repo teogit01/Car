@@ -5,7 +5,7 @@ namespace App\Models;
 use App\Models\Base\BaseModel;
 use Illuminate\Http\Request;
 
-class UserType extends Model
+class UserType extends BaseModel
 {
     protected $table = 'users_type';
 
