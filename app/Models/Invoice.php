@@ -2,10 +2,11 @@
 
 namespace App\Models;
 
+use App\Models\CarDetail;
 use App\Models\Base\BaseModel;
 use Illuminate\Http\Request;
 
-class Invoice extends Model
+class Invoice extends BaseModel
 {
     protected $table = 'invoices';
 
@@ -15,19 +16,31 @@ class Invoice extends Model
 
     protected $fillable = [
         'id',
-        'deposit',
         'address',
-        'time_start',
-        'time_end',
-        'status_id',
-        'comment_id',
-        'discount_id',
+        'name',
+        'status',
+        'phone',
+        'date',
+        'time',
+        'item_count',
+        'is_paid',
+        'payment_method',
+        'grand_total',
         'user_id',
         'created_at',
         'updated_at',
         'deleted_at',
     ];
     public $timestamps = true;
+
+    public function items() 
+    {
+        return $this->belongsToMany(CarDetail::class, 'invoices_detail', 'invoice_id', 'car_detail_id');
+    }
+    public function cardetail()
+    {
+        return $this->belongsTo(App\CarDetail, 'car_detail_id', 'id');
+    }
 
     public function __construct()
     {

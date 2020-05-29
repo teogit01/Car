@@ -72,11 +72,44 @@ route::prefix('/admin')->group(function(){
     	Route::post('/edit/{id}', 'Master\ServiceController@postUpdate')->name('service.postupdate');
     	Route::post('/delete', "Master\ServiceController@delete")->name('service.delete');
 	});
+
+	// COUPON
+	route::prefix('/coupon')->group(function(){
+		route::get('/','Master\CouponController@index')->name('coupon.index');
+		route::get('/add','Master\CouponController@getAdd')->name('coupon.add');
+		route::post('/add','Master\CouponController@postAdd')->name('coupon.postadd');
+		Route::get('/{id}', 'Master\CouponController@getUpdate')->name('coupon.getupdate');
+    	Route::post('/edit/{id}', 'Master\CouponController@postUpdate')->name('coupon.postupdate');
+    	Route::post('/delete', "Master\CouponController@delete")->name('coupon.delete');
+	});
+	
+	// DISCOUNTTYPE
+	route::prefix('/discounttype')->group(function(){
+		route::get('/','Master\DiscountTypeController@index')->name('discounttype.index');
+		route::get('/add','Master\DiscountTypeController@getAdd')->name('discounttype.add');
+		route::post('/add','Master\DiscountTypeController@postAdd')->name('discounttype.postadd');
+		Route::get('/{id}', 'Master\DiscountTypeController@getUpdate')->name('discounttype.getupdate');
+    	Route::post('/edit/{id}', 'Master\DiscountTypeController@postUpdate')->name('discounttype.postupdate');
+    	Route::post('/delete', "Master\DiscountTypeController@delete")->name('discounttype.delete');
+	});
+
 });
 
 route::prefix('/customer')->group(function(){
 	route::get('/','Customer\CustomerController@index');
+	Route::get('/add-to-cart/{cars_detail}', 'Customer\CartController@add')->name('cart.add')->middleware('auth');
+	Route::get('/cart', 'Customer\CartController@index')->name('cart.index');
+	Route::get('/cart/destroy/{itemID}', 'Customer\CartController@destroy')->name('cart.destroy')->middleware('auth');
+	Route::get('/cart/update/{itemID}', 'Customer\CartController@update')->name('cart.update')->middleware('auth');
+	Route::get('/cart/checkout', 'Customer\CartController@checkout')->name('cart.checkout')->middleware('auth');
+	Route::get('/cart/apply-coupon', 'Customer\CartController@applyCoupon')->name('cart.coupon')->middleware('auth');
+	Route::resource('orders', 'Customer\OrderController')->middleware('auth');
+
+	Route::get('paypal/checkout/{order}', 'Customer\PayPalController@getExpressCheckout')->name('paypal.checkout');
+	Route::get('paypal/checkout-success/{order}', 'Customer\PayPalController@getExpressCheckoutSuccess')->name('paypal.success');
+	Route::get('paypal/checkout-cancel', 'Customer\PayPalController@cancelPage')->name('paypal.cancel');
 });
+
 /////////////////////  User ////////////////////////////////
 
 route::prefix('/user')->group(function(){
@@ -84,19 +117,5 @@ route::prefix('/user')->group(function(){
 
 	route::get('/car','User\UserController@car')->name('car');
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 

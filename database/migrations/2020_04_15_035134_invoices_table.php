@@ -16,14 +16,26 @@ class InvoicesTable extends Migration
         if (!Schema::hasTable('invoices')) {
             Schema::create('invoices', function (Blueprint $table) {
                 $table->increments('id')->comment('id');
-                $table->decimal('deposit', 10, 3)->comment('đặt cọc');
+                // $table->decimal('deposit', 10, 3)->comment('đặt cọc');
+                $table->string('name');
                 $table->string('address')->comment('địa chỉ');
-                $table->dateTime('time_start')->comment('thời gian bắt đầu');
-                $table->dateTime('time_end')->comment('thời gian kết thúc');
-                $table->integer('status_id')->unsigned()->comment('id tình trạng');
-                $table->integer('comment_id')->unsigned()->comment('id bình luận');
-                $table->integer('discount_id')->unsigned()->comment('id khuyến mãi');
-                $table->integer('user_id')->unsigned()->comment('id nhân viên');
+                
+                // $table->dateTime('time_start')->comment('thời gian bắt đầu');
+                // $table->dateTime('time_end')->comment('thời gian kết thúc');
+                // $table->integer('status_id')->unsigned()->comment('id tình trạng');
+                // $table->integer('comment_id')->unsigned()->comment('id bình luận');
+                // $table->integer('discount_id')->unsigned()->comment('id khuyến mãi');
+                // $table->integer('user_id')->unsigned()->comment('id nhân viên');
+                $table->integer('user_id');
+                $table->integer('phone');
+
+                $table->enum('status', ['đang chờ','đã liên hệ','đã nhận cọc','đã thanh toán','hoàn thành','hủy'])->default('đang chờ');
+                $table->integer('grand_total');
+                $table->date('date')->nullable();
+                $table->time('time')->nullable();
+                $table->integer('item_count');
+                $table->boolean('is_paid')->default(false);
+                $table->enum('payment_method', ['Tiền Mặt', 'paypal'])->default('Tiền Mặt');
 
                 // log time
                 $table->timestamp('created_at')
