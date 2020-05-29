@@ -116,6 +116,8 @@ route::prefix('/user')->group(function(){
 	route::get('/','User\UserController@index');
 
 	route::get('/car','User\UserController@car')->name('car');
+
+	route::get('/cart','User\UserController@cart')->name('car');
 });
 
 

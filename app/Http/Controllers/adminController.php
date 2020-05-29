@@ -7,6 +7,12 @@ use Illuminate\Support\Facades\Storage;
 
 class adminController extends Controller
 {
+    public function __construct()
+    {
+        parent::__construct();
+        $this->middleware('auth');
+    }
+
     public function index(){
     	return view('admin.index');
     }
