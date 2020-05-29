@@ -1,14 +1,14 @@
 @extends('customer/layouts/header')
 
 
-<h2>Your Cart</h2>
+<h2>{{__('Your Cart') }}</h2>
 <table>
     <thead>
             <tr>
-                <th>Tên Xe</th>
-                <th>Giá Thuê</th>
-                <th>Số Giờ Thuê</th>
-                <th>Cập Nhật</th>
+                <th>{{__('Car Name') }}</th>
+                <th>{{__('Price') }}</th>
+                <th>{{__('Time') }}</th>
+                <th>{{__('Update') }}</th>
             </tr>
     
     </thead>
@@ -21,11 +21,11 @@
                     <td>
                         <form action="{{route('cart.update', $item->id)}}" method="get">
                             <input name="quantity" type="number" min=1 value="{{ $item->quantity }}">
-                            <input class="button" type="submit" value="chọn">
+                            <input class="button" type="submit" value="{{__('Choice')}}">
                         </form>
                     </td>
                     <td>
-                        <a href="{{route('cart.destroy', $item->id)}}" role="button">Xóa</a>
+                        <a href="{{route('cart.destroy', $item->id)}}" role="button">{{__('Delete') }}</a>
                     </td>
                 </tr>
             @endforeach
@@ -50,15 +50,15 @@
 <div>
     <form action="{{route('cart.coupon')}}" method='get'>
         <input id="coupon_code" class="input-text" name="coupon_code" value=""placeholder="Code" type="text" required>
-        <input class="button" name="apply_coupon" value="Xác Nhận" type="submit">
+        <input class="button" name="apply_coupon" value="Confirm" type="submit">
     </form>
 </div>
 <div>
     <h2>Cart totals</h2>
         <ul>
-            <li>SubTotal: <span>{{\Cart::session(auth()->id())->getSubTotal()}} VNĐ</span></li>
-            <li>Total<span>{{\Cart::session(auth()->id())->getTotal()}}</span></li>
+            <li>{{__('SubTotal') }}: <span>{{\Cart::session(auth()->id())->getSubTotal()}} VNĐ</span></li>
+            <li>{{__('Total') }}: <span>{{\Cart::session(auth()->id())->getTotal()}}</span></li>
         </ul>
-            <a href="{{route ('cart.checkout')}}">Tiến hành thanh toán</a>
+            <a href="{{route ('cart.checkout')}}">{{__('CheckOut') }}</a>
 </div>
 

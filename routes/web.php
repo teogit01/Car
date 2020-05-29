@@ -13,9 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+	
+//     return view('welcome');
+// });
+Route::get('/', 'Customer\MapController@index');
 
 Route::get('/login','login@index')->name('login');
 Route::post('/login','login@postLogin')->name('postLogin');
@@ -96,6 +98,7 @@ route::prefix('/admin')->group(function(){
 });
 
 route::prefix('/customer')->group(function(){
+	Route::get('language/{language}', 'Customer\LanguageController@index')->name('language.index');
 	route::get('/','Customer\CustomerController@index');
 	Route::get('/add-to-cart/{cars_detail}', 'Customer\CartController@add')->name('cart.add')->middleware('auth');
 	Route::get('/cart', 'Customer\CartController@index')->name('cart.index');
