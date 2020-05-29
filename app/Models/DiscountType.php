@@ -5,7 +5,7 @@ namespace App\Models;
 use App\Models\Base\BaseModel;
 use Illuminate\Http\Request;
 
-class DiscountType extends Model
+class DiscountType extends BaseModel
 {
     protected $table = 'discounts_type';
 
@@ -34,5 +34,10 @@ class DiscountType extends Model
             'id' => 1
         ];
         return parent::base_update($this->request);
+    }
+
+    public function discount() 
+    {
+        $this->hasMany(DiscountType::class, 'id');
     }
 }
