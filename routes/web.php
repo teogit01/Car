@@ -72,6 +72,27 @@ route::prefix('/admin')->group(function(){
     	Route::post('/edit/{id}', 'Master\ServiceController@postUpdate')->name('service.postupdate');
     	Route::post('/delete', "Master\ServiceController@delete")->name('service.delete');
 	});
+
+	// COUPON
+	route::prefix('/coupon')->group(function(){
+		route::get('/','Master\CouponController@index')->name('coupon.index');
+		route::get('/add','Master\CouponController@getAdd')->name('coupon.add');
+		route::post('/add','Master\CouponController@postAdd')->name('coupon.postadd');
+		Route::get('/{id}', 'Master\CouponController@getUpdate')->name('coupon.getupdate');
+    	Route::post('/edit/{id}', 'Master\CouponController@postUpdate')->name('coupon.postupdate');
+    	Route::post('/delete', "Master\CouponController@delete")->name('coupon.delete');
+	});
+	
+	// DISCOUNTTYPE
+	route::prefix('/discounttype')->group(function(){
+		route::get('/','Master\DiscountTypeController@index')->name('discounttype.index');
+		route::get('/add','Master\DiscountTypeController@getAdd')->name('discounttype.add');
+		route::post('/add','Master\DiscountTypeController@postAdd')->name('discounttype.postadd');
+		Route::get('/{id}', 'Master\DiscountTypeController@getUpdate')->name('discounttype.getupdate');
+    	Route::post('/edit/{id}', 'Master\DiscountTypeController@postUpdate')->name('discounttype.postupdate');
+    	Route::post('/delete', "Master\DiscountTypeController@delete")->name('discounttype.delete');
+	});
+
 });
 
 route::prefix('/customer')->group(function(){

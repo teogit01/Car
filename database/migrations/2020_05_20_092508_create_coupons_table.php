@@ -13,15 +13,31 @@ class CreateCouponsTable extends Migration
      */
     public function up()
     {
-        Schema::create('coupons', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->string('code');
-            $table->string('type');
-            $table->string('value');
-            $table->string('description')->nullable();
-            $table->timestamps();
-        });
+        if (!Schema::hasTable('coupons')) {
+            Schema::create('coupons', function (Blueprint $table) {
+                $table->increments('id')->comment('id');
+                $table->string('name')->comment('Tên');
+                $table->string('code')->comment('Mã');
+                $table->string('type')->comment('Loại');
+                $table->string('value')->comment('Giá trị');
+                $table->string('description')->nullable()->comment('Miêu tả');
+
+                // log time
+                $table->timestamp('created_at')
+                    ->default(DB::raw('CURRENT_TIMESTAMP'))
+                    ->comment('ngày tạo');
+
+                $table->timestamp('updated_at')
+                    ->default(DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'))
+                    ->comment('ngày cập nhật');
+
+                $table->timestamp('deleted_at')
+                    ->nullable()
+                    ->comment('ngày xóa tạm');
+                $table->unique(['code']);
+            });
+            DB::statement("ALTER TABLE `coupons` comment 'Thông tin mua hàng'");
+        }
     }
 
     /**
