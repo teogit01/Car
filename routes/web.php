@@ -110,5 +110,12 @@ route::prefix('/customer')->group(function(){
 	Route::get('paypal/checkout-cancel', 'Customer\PayPalController@cancelPage')->name('paypal.cancel');
 });
 
+/////////////////////  User ////////////////////////////////
+
+route::prefix('/user')->group(function(){
+	route::get('/','User\UserController@index');
+
+	route::get('/car','User\UserController@car')->name('car');
+});
 
 
