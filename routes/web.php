@@ -13,9 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+	
+//     return view('welcome');
+// });
+Route::get('/', 'Customer\MapController@index');
 
 Route::get('/login','login@index')->name('login');
 Route::post('/login','login@postLogin')->name('postLogin');
@@ -96,6 +98,7 @@ route::prefix('/admin')->group(function(){
 });
 
 route::prefix('/customer')->group(function(){
+	Route::get('language/{language}', 'Customer\LanguageController@index')->name('language.index');
 	route::get('/','Customer\CustomerController@index');
 	Route::get('/add-to-cart/{cars_detail}', 'Customer\CartController@add')->name('cart.add')->middleware('auth');
 	Route::get('/cart', 'Customer\CartController@index')->name('cart.index');
@@ -116,6 +119,7 @@ route::prefix('/user')->group(function(){
 	route::get('/','User\UserController@index');
 
 	route::get('/car','User\UserController@car')->name('car');
+<<<<<<< HEAD
 
 	route::get('/cart','User\UserController@cart')->name('car');
 });
@@ -125,3 +129,8 @@ route::prefix('/user')->group(function(){
 
 
 
+=======
+});
+
+
+>>>>>>> 95771da2d89cef92e9b14b34101692f276342421

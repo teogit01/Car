@@ -16,9 +16,12 @@ class CustomerController extends Controller
 
     public function index() {
         
-        //$data = CarDetail::orderBy('id', 'DESC')->get();
+        // $data = CarDetail::orderBy('id', 'DESC')->get();
+
 
     	//return view('customer.home', compact('data'));
+
+   
     	return view('user.index');
     }
 }
