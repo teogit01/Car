@@ -13,11 +13,25 @@
                 <!-- Main-menu -->
                 <div class="main-menu f-right d-none d-lg-block">
                     <nav>
-                        <ul id="navigation">                                                                                                                                     
-                            <li><a href="index.html">Home</a></li>
-                            <li><a href="about.html">About</a></li>
-                            <li><a href="catagori.html">Catagories</a></li>
-                            <li><a href="listing.html">Listing</a></li>
+                        <ul id="navigation">   
+                            <li class = "nav-item dropdown">
+                                <a href="#" class="nav-link" data-toggle="dropdown">
+                                <i class="flag-icon flag-icon-us"></i>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right p-0">
+                                    <a href="{{route('language.index', ['en'])}}" class="dropdown-item active">
+                                    <i class="fas fa-flag-usa"></i>
+                                    EngLish
+                                    </a>
+
+                                    <a href="{{route('language.index', ['vi'])}}" class="dropdown-item">
+                                    <i class="flag-icon flag-icon-vn mr-2"></i> VietNam
+                                    </a>
+                                </div>
+                            </li>                                                                                                                                  
+                            <li><a href="index.html">{{__('Home') }}</a></li>
+                            <li><a href="about.html">{{__('About') }}</a></li>
+                            
                             <li><a href="#">Page</a>
                                 <ul class="submenu">
                                     <li><a href="blog.html">Blog</a></li>
@@ -26,7 +40,7 @@
                                     <li><a href="listing_details.html">Listing details</a></li>
                                 </ul>
                             </li>
-                            <li><a href="contact.html">Contact</a></li>
+                            <li><a href="contact.html">{{__('Contact') }}</a></li>
                             <li>
                                 <a href="{{route('cart.index')}}">
                                     <i class="fas fa-shopping-cart fa-2x"></i>
@@ -41,7 +55,7 @@
                             </li>
                             <!-- <li class="add-list"><a href="listing_details.html"><i class="fas fa-shopping-cart"></i></a></li> -->
                             <li class="login"><a href="#">
-                                <i class="ti-user"></i> Sign in or Register</a>
+                                <i class="ti-user"></i>{{__('Sign in or Register') }}</a>
                             </li>
                         </ul>
                     </nav>
