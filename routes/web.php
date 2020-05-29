@@ -77,3 +77,26 @@ route::prefix('/admin')->group(function(){
 route::prefix('/customer')->group(function(){
 	route::get('/','Customer\CustomerController@index');
 });
+/////////////////////  User ////////////////////////////////
+
+route::prefix('/user')->group(function(){
+	route::get('/','User\UserController@index');
+
+	route::get('/car','User\UserController@car')->name('car');
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
