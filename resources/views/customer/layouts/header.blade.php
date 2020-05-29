@@ -13,8 +13,9 @@
                 <!-- Main-menu -->
                 <div class="main-menu f-right d-none d-lg-block">
                     <nav>
+                    
                         <ul id="navigation">   
-                            <li class = "nav-item dropdown">
+                             <li class = "dropdown">
                                 <a href="#" class="nav-link" data-toggle="dropdown">
                                 <i class="flag-icon flag-icon-us"></i>
                                 </a>
@@ -28,7 +29,10 @@
                                     <i class="flag-icon flag-icon-vn mr-2"></i> VietNam
                                     </a>
                                 </div>
-                            </li>                                                                                                                                  
+                            </li>
+                            
+                              
+                                                                                                                                                   
                             <li><a href="index.html">{{__('Home') }}</a></li>
                             <li><a href="about.html">{{__('About') }}</a></li>
                             
@@ -53,7 +57,7 @@
                                     </div>
                                 </a>
                             </li>
-                            <!-- <li class="add-list"><a href="listing_details.html"><i class="fas fa-shopping-cart"></i></a></li> -->
+                            
                             <li class="login"><a href="#">
                                 <i class="ti-user"></i>{{__('Sign in or Register') }}</a>
                             </li>

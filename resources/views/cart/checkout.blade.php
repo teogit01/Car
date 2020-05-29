@@ -1,4 +1,4 @@
-<h2>Thanh Toán</h2>
+<h2>{{__('CheckOut') }}</h2>
 <div class="success">
     {{-- display success message --}}
         @if(session()->has('message'))
@@ -18,21 +18,21 @@
 <form action="{{route('orders.store')}}" method="post">
     @csrf
     <div>
-        <label for="">Tên</label>
+        <label for="">{{__('Name') }} :</label>
         <input type="text" name="shipping_fullname" id="">
     </div>
     <div>
-        <label for="">Địa Chỉ Giao Xe</label>
+        <label for="">{{__('Address') }} :</label>
         <input type="text" name="shipping_address" id="">
     </div>
     <div>
-        <label for="">SĐT</label>
+        <label for="">{{__('Phone') }} :</label>
         <input type="text" name="shipping_phone" id="">
     </div>
     <table>
         <thead>
             <th>
-                Thời Gian Nhận Xe
+            {{__('Date Time Receive') }}
             </th>
         </thead>
         <tbody>
@@ -45,12 +45,12 @@
         </tbody>
     </table>
 
-    <h4>Phương thức thanh toán</h4>
+    <h4>{{__('Payment Method') }}</h4>
 
     <div>
         <label>
             <input type="radio" name="payment_method" id="" value="Tiền Mặt" checked>
-            Tiền Mặt
+            {{__('Cash') }}
 
         </label>
 
@@ -66,7 +66,7 @@
     </div>
 
 
-    <button type="submit">Thanh Toán</button>
+    <button type="submit">{{__('CheckOut') }}</button>
 
 
 </form>
