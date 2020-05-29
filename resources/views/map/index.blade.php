@@ -6,7 +6,7 @@
     <title>Map</title>
 </head>
 <body>
-<div style="width: 500px; height: 500px;">
+<div style="width: 100%; height: 700px;">
 	{!! Mapper::render() !!}
 </div>
 </body>
