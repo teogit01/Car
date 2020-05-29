@@ -14,10 +14,10 @@ use Mapper;
 class MapController extends Controller
 {
     public function index()
-{
-	Mapper::map(10.030938, 105.769021);
+		{
+			Mapper::map(10.030938, 105.769021);
 
-	return view('map.index');
-}
+			return view('map.index');
+		}
 
 }
