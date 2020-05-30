@@ -6,9 +6,17 @@
 			<li><a href="travel.html">Page</a></li>
 			<li><a href="about.html">About</a></li>
 			<li><a href="contact.html">Contact</a></li>
-			<li><a href="contact.html">
+			<li><a href="{{route('cart.index')}}">
 				<img style="width: 30px;height: 30px" src="{{asset('src/user/img/cart.png')}}">
-			</a><span>[0]</span></li>
+			</a>
+				<span>
+					<div class="badge badge-danger">
+                        @auth
+                            {{Cart::session(auth()->id())->getContent()->count()}}
+                        @else
+                            0
+                        @endauth
+                    </div></span></li>
 		</ul>
 	</nav>
 
