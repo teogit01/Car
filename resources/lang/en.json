@@ -22,5 +22,8 @@
     "SĐT": "Phone",
     "Thời Gian Nhận Xe": "Date Time Receive",
     "Phương Thức Thanh Toán": "Payment Method",
-    "Tiền Mặt": "Cash"
+    "Tiền Mặt": "Cash",
+    "Xe": "Car",
+    "Có Sẵn": "Available",
+    "Loại xe": "Type"
 }
