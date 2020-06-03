@@ -30,6 +30,7 @@ class login extends Controller
     	];
     	
       $this->config($config);
+      $this->request['password'] =  Hash::make($request->password);
     
       $data = $this->model->web_insert($this->request);
    		
