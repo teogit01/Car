@@ -122,17 +122,7 @@ route::prefix('/user')->group(function(){
 	route::get('/','User\UserController@index');
 
 	route::get('/car','User\UserController@car')->name('car');
-<<<<<<< HEAD
 
-	route::get('/cart','User\UserController@cart')->name('car');
-});
-
-
-
-
-
-
-=======
 });
 
 /////////////////////  Search ////////////////////////////////
@@ -142,11 +132,3 @@ route::post('/search','SearchController@search')->name('search');
 // route::get('/search','SearchController@test');
 
 
-
-
-
-
-
-
-
->>>>>>> 95771da2d89cef92e9b14b34101692f276342421
