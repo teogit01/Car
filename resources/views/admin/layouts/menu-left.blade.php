@@ -32,6 +32,15 @@
               </p>
             </a>
           </li>
+          {{-- Banner --}}
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-pager"></i>
+              <p>
+                Banner
+              </p>
+            </a>
+          </li>
           {{-- Dịch vụ --}}
           <li class="nav-item">
             <a href="{{route('service.index')}}" class="nav-link">
