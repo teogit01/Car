@@ -8,15 +8,17 @@ use App\Models\CarDetail;
 
 class CustomerController extends Controller
 {
-	public function __construct(){
-    	
-    	parent::__construct();
-        $this->middleware('auth');
+
+	public function __construct()
+    {
+        parent::__construct();
+       	$this->middleware('auth');
     }
 
     public function index() {
         
-        //$data = CarDetail::orderBy('id', 'DESC')->get();
+        // $data = CarDetail::orderBy('id', 'DESC')->get();
+
 
     	//return view('customer.home', compact('data'));
     	return view('user.index');

@@ -9,6 +9,11 @@ use Cart;
 
 class PayPalController extends Controller
 {
+    public function __construct()
+    {
+        parent::__construct();
+        $this->middleware('auth');
+    }
     public function getExpressCheckout($orderId)
     {
         $checkoutData = $this->checkoutData($orderId);
