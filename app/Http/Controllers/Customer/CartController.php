@@ -9,6 +9,12 @@ use Cart;
 
 class CartController extends Controller
 {
+    public function __construct(){
+        
+        parent::__construct();
+        $this->middleware('auth');
+    }
+
     public function add(CarDetail $cars_detail)
     {
         // add the product to cart

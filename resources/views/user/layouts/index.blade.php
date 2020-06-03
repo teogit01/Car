@@ -4,9 +4,17 @@
   <body>
 
 	<div id="colorlib-page">
+    
 		<a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle"><i></i></a>
-		@include('user.layouts.left')
-		@yield('main')
+		<div style="display: flex; width: 100%">
+      <div style="flex-direction: column; width: 25%;">
+        @include('user.layouts.left')
+      </div>
+      <div style="width: 75%;">
+        @include('user.layouts.banner')
+      </div>
+    </div>
+    @yield('main')
 	</div><!-- END COLORLIB-PAGE -->
 
   <!-- loader -->

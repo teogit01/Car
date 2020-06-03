@@ -14,6 +14,7 @@ use App\Http\Controllers\Base\BaseResponseweb;
 
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Auth;
 
 class Controller extends BaseController
 {
@@ -35,7 +36,6 @@ class Controller extends BaseController
     public function __construct(){
     	
     	$this->response = new BaseResponseweb();
-        $this->middleware('auth');
     }
 
     public function config($option){

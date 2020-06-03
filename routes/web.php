@@ -92,7 +92,10 @@ route::prefix('/admin')->group(function(){
     	Route::post('/edit/{id}', 'Master\DiscountTypeController@postUpdate')->name('discounttype.postupdate');
     	Route::post('/delete', "Master\DiscountTypeController@delete")->name('discounttype.delete');
 	});
-
+	/////////////////////  Banner ////////////////////////////////
+	route::prefix('/banner')->group(function(){
+		route::get('/','Master\BannerController@index');
+	});
 });
 
 route::prefix('/customer')->group(function(){
@@ -117,5 +120,18 @@ route::prefix('/user')->group(function(){
 
 	route::get('/car','User\UserController@car')->name('car');
 });
+
+/////////////////////  Search ////////////////////////////////
+//route::post('/search','SearchController@car')->name('search.car');
+//route::get('/search','SearchController@getSearch')->name('get.search');
+route::post('/search','SearchController@search')->name('search');
+// route::get('/search','SearchController@test');
+
+
+
+
+
+
+
 
 
