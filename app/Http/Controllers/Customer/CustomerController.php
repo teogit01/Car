@@ -8,6 +8,7 @@ use App\Models\CarDetail;
 
 class CustomerController extends Controller
 {
+
 	public function __construct()
     {
         parent::__construct();
@@ -20,8 +21,6 @@ class CustomerController extends Controller
 
 
     	//return view('customer.home', compact('data'));
-
-   
     	return view('user.index');
     }
 }

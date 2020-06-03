@@ -9,12 +9,11 @@ use App\Models\DiscountType;
 class DiscountTypeController extends Controller
 {
     // Hàm khởi tạo.
-    public function __construct()
-    {
+    public function __construct(){
+        
         parent::__construct();
         $this->middleware('auth');
     }
-
     // Hàm đỗ dữ liệu của một Khoa ra trang index
     public function index (Request $request)
     {

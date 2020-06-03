@@ -9,8 +9,16 @@ use App\Models\CarDetail;
 
 class UserController extends Controller
 {
+	public function __construct(){
+    	parent::__construct();
+        $this->middleware('auth');
+    }
+
     public function index() {
-    	return view('user.index');
+        
+        $cars = CarDetail::all();
+
+    	return view('user.index',['cars'=>$cars]);
     }
 
     public function car(Request $request) {

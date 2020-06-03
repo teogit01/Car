@@ -9,8 +9,8 @@ use App\Models\Coupon;
 class CouponController extends Controller
 {
     /// Hàm khởi tạo.
-    public function __construct()
-    {
+    public function __construct(){
+        
         parent::__construct();
         $this->middleware('auth');
     }

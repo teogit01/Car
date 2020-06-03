@@ -3,9 +3,14 @@
 @section('main')
 	<div id="colorlib-main">
 		<section class="ftco-section">
+			
+			@if (isset($amount))
+				<div style="margin-top: -50px;"><h3>có '{{ $amount }}' kết quả tìm kím {{ $key }}</h3></div>
+			@endif
+
 			<div class="container">
 				<div class="row px-md-4">
-					@if(!empty($cars))
+					@if((count($cars) > 0))
 						@foreach($cars as $index => $car)
 							<table>
 								<tr>
@@ -34,6 +39,7 @@
 								</tr>
 							</table>
 						@endforeach
+					
 					@endif
 					
 				</div>
@@ -56,9 +62,4 @@
 		</section>
 	</div><!-- END COLORLIB-MAIN -->
 
-	<script type="text/javascript">
-		function test(){
-			alert('ok')
-		}
-	</script>
 @endsection

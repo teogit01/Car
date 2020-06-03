@@ -14,6 +14,7 @@ use App\Http\Controllers\Base\BaseResponseweb;
 
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Auth;
 
 class Controller extends BaseController
 {

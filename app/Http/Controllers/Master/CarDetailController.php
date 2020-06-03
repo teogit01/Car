@@ -15,7 +15,8 @@ use Illuminate\Support\Facades\Storage;
 class CarDetailController extends Controller
 {
     // Hàm khởi tạo.
-    public function __construct() {
+    public function __construct(){
+        
         parent::__construct();
         $this->middleware('auth');
     }
