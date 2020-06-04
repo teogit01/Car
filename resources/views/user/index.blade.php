@@ -25,7 +25,7 @@
 										<span><i class="icon-comment2 mr-2"></i>5 Comment</span>
 									</p>
 								</div>
-								<span><button class="btn btn-info">Add to cart</button></span>
+								<span><button class="btn btn-info">{{__('Add to cart') }}</button></span>
 								<!-- <p><a href="#" class="btn-custom">Read More <span class="ion-ios-arrow-forward"></span></a></p> -->
 							</div>
 						</div>
