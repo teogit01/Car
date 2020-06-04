@@ -1,6 +1,7 @@
-
 @extends('user.layouts.index')
-
+@section('banner')
+	@include('user.layouts.banner')
+@endsection
 @section('main')
 	@section('main-car')      
 	@if (!empty($cars))
@@ -35,7 +36,8 @@
 		@endforeach
 	@endif
 	@endsection
-	
 	@include('user.layouts.main')
-	
+	<script type="text/javascript">
+		$('#home').attr("class", "colorlib-active")
+	</script>
 @endsection

@@ -34,10 +34,10 @@
                         <label for="name" class="control-label">Tên</label>
                         <input type="text" class="form-control" id="name" name="name" placeholder="Phiếu thuê xe..." autocomplete="off">
                 </div>
-                <div class="form-group">
+                <!-- <div class="form-group">
                     <label for="code" class="control-label">Mã</label>
                     <input type="text" class="form-control" id="code" name="code" placeholder="B01" autocomplete="off">
-                </div>
+                </div> -->
                 <div class="form-group">
                     <label for="type" class="control-label">Loại</label>
                     <input type="text" class="form-control" id="type" name="type" placeholder="" autocomplete="off">

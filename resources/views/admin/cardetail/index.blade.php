@@ -63,7 +63,10 @@
                                     <td>{{$item->rental}}</td>
                                     <td>
                                         <div class="action">
-                                            <span class="del" onclick='del({{$item->id}})'>Xoá</span>
+                                            <span class="del" onclick='detail({{$item->id}})'><i class="fa fa-pencil text-inverse m-r-10 fa-lg"></i></span>
+                                            &nbsp;&nbsp;&nbsp;
+                                            <span class="del" onclick='del({{$item->id}})'><i class="fal fa-trash-alt fa-lg"></i></span>
+
                                         </div>
                                     </td>
                                 </tr>

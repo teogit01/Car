@@ -18,6 +18,7 @@ class CommentsTable extends Migration
                 $table->increments('id')->comment('id');
                 $table->text('content')->comment('nội dung bình luận');
                 $table->integer('user_id')->unsigned()->comment('user_id');
+                $table->integer('car_id')->unsigned()->comment('car_id');
                 
 
                 // log time

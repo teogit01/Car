@@ -11,7 +11,7 @@
         @include('user.layouts.left')
       </div>
       <div style="width: 75%;">
-        @include('user.layouts.banner')
+        @yield('banner')
       </div>
     </div>
     @yield('main')

@@ -1,6 +1,14 @@
 @extends('user.layouts.index')
-
+@section('banner')
+	@include('user.layouts.banner')
+@endsection
 @section('main')
+	<style type="text/css">
+		input { --border: none;--height: 30px; border: 1px solid #ddd; padding-left: 20px; border-radius: 10px }
+		input:focus { outline: none; }
+	</style>
+
+<meta name="csrf-token" content="{{ csrf_token() }}">
 	<div id="colorlib-main">
 		<section class="ftco-section">
 			
@@ -27,8 +35,32 @@
 														<p class="meta">
 															<!-- <span><i class="icon-calendar mr-2"></i>June 28, 2019</span> -->
 															<span><a href="single.html"><i class="icon-folder-o mr-2"></i>{{__('Type') }}</a></span>
-															<span><i class="icon-comment2 mr-2"></i>5 Comment</span>
+															<span><a class="" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"><i class="icon-comment2 mr-2"></i>Comment</span></a><input style="border: none;padding-left: 0;background-color: #fff; color: black" disabled type="number" id='count-comment'value='{{count($comments)}}'>
 														</p>
+														<div class="collapse" id="collapseExample">
+															<div class="card card-body" style="border: none;margin-left: 50px;margin-top: -20px">
+																<div id='load-comment'>
+																@if ($comments)
+																@foreach ($comments as $comment)
+																<div style="display: flex;">
+
+																	<div style="width: 90%">
+																		{{$comment->content}}
+																	</div>
+		
+																	<div style="text-align: right;width: 10%">. . .</div>
+																</div>
+																<hr style="margin-top: -3px;color: #eee">
+																@endforeach
+																@endif
+																</div>
+
+																<input type="text" id='comment' name="comment">
+															</div>
+															<div style="text-align: right;margin-right: 20px ">
+																<button id='submit' class="btn btn-info btn-light" onclick='comment({{Auth::id()}},{{$car->id}})'>Comment</button>
+															</div>
+														</div>
 													</div>
 													<span><a href="{{route('cart.add', $car->id)}}" class="btn btn-info" role="button">Add to cart</a></span>
 													<!-- <p><a href="#" class="btn-custom">Read More <span class="ion-ios-arrow-forward"></span></a></p> -->
@@ -61,5 +93,34 @@
 			</div>
 		</section>
 	</div><!-- END COLORLIB-MAIN -->
+	<script type="text/javascript">
+		$('#car').attr("class", "colorlib-active")
+		// submit comment
+		function comment(idUser,idCar){
+			//alert($('#comment').val())
+			var comment = $('#comment').val()
+			var countComment = parseInt($('#count-comment').val())	
+			// var idUser = idUser
+			// var idCar = idCar
+			$.ajax({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    type: 'post',
+                    url: path +'user/car/comment',
+                    data : {comment: comment,idUser: idUser, idCar: idCar},
+                    success : function(data) {
 
+                        $('#load-comment').html(data)
+                        $('#comment').val('')
+                        $('#count-comment').val(countComment+1)
+                        //alert(data)
+                    },
+                    error : function(error) {
+                        alert('error')
+                        //console.log(error)
+                    }
+                })     
+			}
+	</script>
 @endsection

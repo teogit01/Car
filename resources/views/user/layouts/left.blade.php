@@ -3,10 +3,10 @@
 <aside id="colorlib-aside" role="complementary" class="js-fullheight">
 	<nav id="colorlib-main-menu" role="navigation">
 		<ul>
-			<li class="colorlib-active"><a href="index.html">{{__('Home') }}</a></li>
-			<li><a href="{{route('car')}}">{{__('Car') }}</a></li>
-			<li><a href="about.html">{{__('About') }}</a></li>
-			<li><a href="contact.html">{{__('Contact') }}</a></li>
+			<li class="home colorlib" id='home'><a href="{{route('home')}}">{{__('Home') }}</a></li>
+			<li class="car colorlib" id='car'><a href="{{route('car')}}">{{__('Car') }}</a></li>
+			<li class="about colorlib"><a href="about.html">{{__('About') }}</a></li>
+			<li class="contact"><a href="contact.html">{{__('Contact') }}</a></li>
 			<li><a href="{{route('cart.index')}}">
 				<img style="width: 30px;height: 30px" src="{{asset('src/user/img/cart.png')}}">
 			</a>
@@ -52,4 +52,12 @@
 			<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
 	</div>
 </aside> <!-- END COLORLIB-ASIDE -->
+<script type="text/javascript">
+	function cli(){
+		$('#car').attr('class','active')
 
+	}
+	$('.colorlib').each(item=>function(){
+		$(this).attr('colorlib-active')
+	})
+</script>

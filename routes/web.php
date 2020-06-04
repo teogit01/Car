@@ -119,8 +119,9 @@ route::prefix('/customer')->group(function(){
 /////////////////////  User ////////////////////////////////
 
 route::prefix('/user')->group(function(){
-	route::get('/','User\UserController@index');
+	route::get('/','User\UserController@index')->name('home');
 	route::get('/car','User\UserController@car')->name('car');
+	route::post('/car/comment','User\UserController@comment')->name('car.comment');
 });
 
 /////////////////////  Search ////////////////////////////////
@@ -128,12 +129,5 @@ route::prefix('/user')->group(function(){
 //route::get('/search','SearchController@getSearch')->name('get.search');
 route::post('/search','SearchController@search')->name('search');
 // route::get('/search','SearchController@test');
-
-
-
-
-
-
-
 
 

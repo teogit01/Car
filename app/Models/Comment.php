@@ -17,6 +17,7 @@ class Comment extends BaseModel
         'id',
         'content',
         'user_id',
+        'car_id',
         'created_at',
         'updated_at',
         'deleted_at',
