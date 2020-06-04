@@ -8,7 +8,7 @@
     .left { width: 59%; box-shadow: 1px 1px 10px #ddd; border-radius: 10px; line-height: 45px; padding: 5px 20px;max-height: 410px; height: 410px}
     .left table { width: 100%;}
     .left table tr ,.left table td { border-bottom: 1px solid #ddd; }
-    input, textarea { border: none; width: 80 color:green; }
+    input, textarea { border: none; width: 80 color:green; background-color: #fff }
     input:focus { outline: none; color: green }
     .main-content .right { width: 40%; box-shadow: 1px 1px 10px #ddd; border-radius: 0px; margin-left: 1%; max-height: 500px;overflow: scroll; }
     .btn { width: 30%; }

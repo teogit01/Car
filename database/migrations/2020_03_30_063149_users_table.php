@@ -21,7 +21,7 @@ class UsersTable extends Migration
                 $table->string('name')->nullable()->comment('họ và tên');
                 $table->string('address')->nullable()->comment('địa chỉ');
                 $table->string('tel')->nullable()->comment('sdt');
-                $table->integer('user_type_id')->nullable()->unsigned()->comment('id loại người dùng');
+                $table->string('role')->nullable()->comment('vai tro admin, user');
                 // log time
                 $table->timestamp('created_at')
                     ->default(DB::raw('CURRENT_TIMESTAMP'))

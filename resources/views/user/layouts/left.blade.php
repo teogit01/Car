@@ -3,15 +3,34 @@
 <aside id="colorlib-aside" role="complementary" class="js-fullheight">
 	<nav id="colorlib-main-menu" role="navigation">
 		<ul>
-			<li class="colorlib-active"><a href="index.html">Home</a></li>
-			<li><a href="{{route('car')}}">Car</a></li>
-			<li><a href="travel.html">Page</a></li>
-			<li><a href="about.html">About</a></li>
-			<li><a href="contact.html">Contact</a></li>
-			<li><a href="contact.html">
+			<li class="home colorlib" id='home'><a href="{{route('home')}}">{{__('Home') }}</a></li>
+			<li class="car colorlib" id='car'><a href="{{route('car')}}">{{__('Car') }}</a></li>
+			<li class="about colorlib"><a href="about.html">{{__('About') }}</a></li>
+			<li class="contact"><a href="contact.html">{{__('Contact') }}</a></li>
+			<li><a href="{{route('cart.index')}}">
 				<img style="width: 30px;height: 30px" src="{{asset('src/user/img/cart.png')}}">
-			</a><span>[0]</span></li>
+			</a>
+				<span>
+					<div class="badge badge-danger">
+                        @auth
+                            {{Cart::session(auth()->id())->getContent()->count()}}
+                        @else
+                            0
+                        @endauth
+                    </div></span></li>
+			<li>
+			<div class="dropdown">
+				<button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					{{__('Language')}}
+				</button>
+				<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+					<a class="dropdown-item" href="{{route('language.index', ['en'])}}">US-UK</a>
+					<a class="dropdown-item" href="{{route('language.index', ['vi'])}}">VN</a>
+				</div>
+				</div>
+			</li>
 		</ul>
+		
 	</nav>
 
 	<div class="colorlib-footer">
@@ -33,4 +52,12 @@
 			<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
 	</div>
 </aside> <!-- END COLORLIB-ASIDE -->
+<script type="text/javascript">
+	function cli(){
+		$('#car').attr('class','active')
 
+	}
+	$('.colorlib').each(item=>function(){
+		$(this).attr('colorlib-active')
+	})
+</script>
