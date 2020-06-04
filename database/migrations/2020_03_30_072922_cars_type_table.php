@@ -27,7 +27,7 @@ class CarsTypeTable extends Migration
                     ->comment('ngày tạo');
 
                 $table->timestamp('updated_at')
-                    ->default(DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'))
+                    ->default(DB::raw('CURRENT_TIMESTAMP'))
                     ->comment('ngày cập nhật');
 
                 $table->timestamp('deleted_at')
@@ -36,7 +36,7 @@ class CarsTypeTable extends Migration
                 // Setting unique
                 $table->unique(['code']);
             });
-            DB::statement("ALTER TABLE `cars_type` comment 'Thông tin bảng loại xe'");
+            // DB::statement("ALTER TABLE `cars_type` comment 'Thông tin bảng loại xe'");
         }
     }
 
