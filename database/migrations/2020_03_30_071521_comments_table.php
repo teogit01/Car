@@ -27,14 +27,14 @@ class CommentsTable extends Migration
                     ->comment('ngày tạo');
 
                 $table->timestamp('updated_at')
-                    ->default(DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'))
+                    ->default(DB::raw('CURRENT_TIMESTAMP'))
                     ->comment('ngày cập nhật');
 
                 $table->timestamp('deleted_at')
                     ->nullable()
                     ->comment('ngày xóa tạm');
             });
-            DB::statement("ALTER TABLE `comments` comment 'Thông tin bảng bình luận'");
+            //DB::statement("ALTER TABLE `comments` comment 'Thông tin bảng bình luận'");
         }
     }
 
