@@ -13,11 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
+Route::get('/', function () {
 	
-//     return view('welcome');
-// });
-Route::get('/', 'Customer\MapController@index');
+    return view('welcome');
+});
+// Route::get('/', 'Customer\MapController@index');
 
 Route::get('/login','login@index')->name('login');
 Route::post('/login','login@postLogin')->name('postLogin');
