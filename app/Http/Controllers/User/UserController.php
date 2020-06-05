@@ -18,8 +18,9 @@ class UserController extends Controller
     public function index() {
         
         $cars = CarDetail::all();
+        $comments = Comment::all();
 
-    	return view('user.index',['cars'=>$cars]);
+    	return view('user.index',['cars'=>$cars,'comments'=>$comments]);
     }
 
     public function car(Request $request) {

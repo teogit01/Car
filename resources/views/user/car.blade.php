@@ -6,6 +6,7 @@
 	<style type="text/css">
 		input { --border: none;--height: 30px; border: 1px solid #ddd; padding-left: 20px; border-radius: 10px }
 		input:focus { outline: none; }
+		.delComment { cursor: pointer; }
 	</style>
 
 <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -48,7 +49,7 @@
 																		{{$comment->content}}
 																	</div>
 		
-																	<div style="text-align: right;width: 10%">. . .</div>
+																	<div style="text-align: right;width: 10%" class="delComment" onclick='delComment()'>. . .</div>
 																</div>
 																<hr style="margin-top: -3px;color: #eee">
 																@endforeach
@@ -127,5 +128,9 @@
                     }
                 })     
 			}
+		// Detele comment
+		function delComment(){
+			alert('delete')
+		}
 	</script>
 @endsection

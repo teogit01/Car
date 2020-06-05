@@ -1,72 +1,92 @@
-<h2>{{__('CheckOut') }}</h2>
-<div class="success">
-    {{-- display success message --}}
-        @if(session()->has('message'))
-            <div class="alert alert-success text-center" role="alert">
-               {{session('message')}}
-            </div>
-        @endif
 
-    {{-- display error message --}}
+@extends('user.layouts.index')
+@section('main')
+<style type="text/css">
+    .main { margin-left: 20px; }
+</style>
+<div id="colorlib-main">
+    <section class="ftco-section">
+        <div class="main">
+            <h2>{{__('CheckOut') }}</h2>
+            <div class="success">
+                {{-- display success message --}}
+                @if(session()->has('message'))
+                <div class="alert alert-success text-center" role="alert">
+                   {{session('message')}}
+               </div>
+               @endif
 
-        @if(session()->has('error'))
-            <div class="alert alert-danger text-center" role="alert">
+               {{-- display error message --}}
+
+               @if(session()->has('error'))
+               <div class="alert alert-danger text-center" role="alert">
                 {{session('error')}}
             </div>
-        @endif
+            @endif
         </div>
-<form action="{{route('orders.store')}}" method="post">
-    @csrf
-    <div>
-        <label for="">{{__('Name') }} :</label>
-        <input type="text" name="shipping_fullname" id="">
+        <form action="{{route('orders.store')}}" method="post">
+            @csrf
+            <div>
+                <label for="">{{__('Name') }} :</label>
+                <input type="text" name="shipping_fullname" id="">
+            </div>
+            <div>
+                <label for="">{{__('Address') }} :</label>
+                <input type="text" name="shipping_address" id="">
+            </div>
+            <div>
+                <label for="">{{__('Phone') }} :</label>
+                <input type="text" name="shipping_phone" id="">
+            </div>
+            <table>
+                <thead>
+                    <th>
+                        {{__('Date Time Receive') }}
+                    </th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <input type="time" name="time">
+                            <input type="date" name="date">
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h4>{{__('Payment Method') }}</h4>
+
+            <div>
+                <label>
+                    <input type="radio" name="payment_method" id="" value="Tiền Mặt" checked>
+                    {{__('Cash') }}
+
+                </label>
+
+            </div>
+
+            <div>
+                <label>
+                    <input type="radio" name="payment_method" id="" value="paypal">
+                    Paypal
+
+                </label>
+
+            </div>
+
+
+            <button type="submit">{{__('CheckOut') }}</button>
+
+
+        </form>
     </div>
-    <div>
-        <label for="">{{__('Address') }} :</label>
-        <input type="text" name="shipping_address" id="">
-    </div>
-    <div>
-        <label for="">{{__('Phone') }} :</label>
-        <input type="text" name="shipping_phone" id="">
-    </div>
-    <table>
-        <thead>
-            <th>
-            {{__('Date Time Receive') }}
-            </th>
-        </thead>
-        <tbody>
-            <tr>
-                <td>
-                    <input type="time" name="time">
-                    <input type="date" name="date">
-                </td>
-            </tr>
-        </tbody>
-    </table>
 
-    <h4>{{__('Payment Method') }}</h4>
-
-    <div>
-        <label>
-            <input type="radio" name="payment_method" id="" value="Tiền Mặt" checked>
-            {{__('Cash') }}
-
-        </label>
-
-    </div>
-
-    <div>
-        <label>
-            <input type="radio" name="payment_method" id="" value="paypal">
-            Paypal
-
-        </label>
-
-    </div>
+</section>
+</div><!-- END COLORLIB-MAIN -->
 
 
-    <button type="submit">{{__('CheckOut') }}</button>
+@endsection
 
 
-</form>
+
+

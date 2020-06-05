@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\CarDetail;
+use App\Models\Comment;
 
 class SearchController extends Controller
 {
@@ -24,7 +25,8 @@ class SearchController extends Controller
     public function search(Request $request){
         //$cars = CarDetail::where('name','like','%'.$request->key.'%')->orWhere('price',$request->key)->get();
         $cars = CarDetail::where('name','like','%'.$request->key.'%')->get();
-        return view('user.car',['cars'=>$cars,'amount'=>count($cars),'key'=>$request->key]);
+        $comments = Comment::all();
+        return view('user.car',['cars'=>$cars,'amount'=>count($cars),'key'=>$request->key,'comments'=>$comments]);
     }
 }
 
