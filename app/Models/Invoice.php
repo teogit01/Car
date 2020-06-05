@@ -22,6 +22,7 @@ class Invoice extends BaseModel
         'phone',
         'date',
         'time',
+        'service',
         'item_count',
         'is_paid',
         'payment_method',
