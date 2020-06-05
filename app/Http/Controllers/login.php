@@ -30,6 +30,8 @@ class login extends Controller
     	];
     	
       $this->config($config);
+      $this->request['password'] =  Hash::make($request->password);
+      $this->request['role'] = 'Cus';
     
       $data = $this->model->web_insert($this->request);
    		
@@ -46,11 +48,13 @@ class login extends Controller
         $user = User::where('username',$username)->first();
         if ($user){
           if ( Hash::check($password,$user->password) ){
-           if ( $user->user_type_id == 0 ){
-            return view('admin.index');
+           if ( $user->role== 'Admin' ){
+            //return view('admin.index');
+            return redirect('admin');
             } else {
             //custom
-                return view('custom');
+                // return view('user');
+              return redirect('user');
              }
           }
         }

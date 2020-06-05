@@ -13,11 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
+Route::get('/', function () {
 	
-//     return view('welcome');
-// });
-Route::get('/', 'Customer\MapController@index');
+    return redirect('user');
+});
+// Route::get('/', 'Customer\MapController@index');
 
 Route::get('/login','login@index')->name('login');
 Route::post('/login','login@postLogin')->name('postLogin');
@@ -123,15 +123,11 @@ route::prefix('/customer')->group(function(){
 /////////////////////  User ////////////////////////////////
 
 route::prefix('/user')->group(function(){
-	route::get('/','User\UserController@index');
-
+	route::get('/','User\UserController@index')->name('home');
 	route::get('/car','User\UserController@car')->name('car');
-	route::get('/about','User\UserController@about')->name('about');
 });
-
 
 /////////////////////  Search ////////////////////////////////
 //route::post('/search','SearchController@car')->name('search.car');
 //route::get('/search','SearchController@getSearch')->name('get.search');
 route::post('/search','SearchController@search')->name('search');
-// route::get('/search','SearchController@test');

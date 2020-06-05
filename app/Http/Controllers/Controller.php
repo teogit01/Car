@@ -34,7 +34,7 @@ class Controller extends BaseController
     public $checkLogin=null;
 
     public function __construct(){
-    	$this->response = new BaseResponseweb();
+        
     }
 
     public function config($option){

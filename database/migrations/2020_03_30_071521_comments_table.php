@@ -18,6 +18,7 @@ class CommentsTable extends Migration
                 $table->increments('id')->comment('id');
                 $table->text('content')->comment('nội dung bình luận');
                 $table->integer('user_id')->unsigned()->comment('user_id');
+                $table->integer('car_id')->unsigned()->comment('car_id');
                 
 
                 // log time
@@ -26,14 +27,14 @@ class CommentsTable extends Migration
                     ->comment('ngày tạo');
 
                 $table->timestamp('updated_at')
-                    ->default(DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'))
+                    ->default(DB::raw('CURRENT_TIMESTAMP'))
                     ->comment('ngày cập nhật');
 
                 $table->timestamp('deleted_at')
                     ->nullable()
                     ->comment('ngày xóa tạm');
             });
-            DB::statement("ALTER TABLE `comments` comment 'Thông tin bảng bình luận'");
+            //DB::statement("ALTER TABLE `comments` comment 'Thông tin bảng bình luận'");
         }
     }
 

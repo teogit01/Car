@@ -26,7 +26,7 @@
 
 <script type="text/javascript">
 	var i = -1;
-	var images = ['https://via.placeholder.com/980x400','https://via.placeholder.com/980x300','https://via.placeholder.com/980x200']
+	var images = ['https://via.placeholder.com/980x400','https://via.placeholder.com/980x400','https://via.placeholder.com/980x400']
 	function back(){
 
 		i--;

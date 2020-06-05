@@ -28,7 +28,7 @@ class CreateCouponsTable extends Migration
                     ->comment('ngày tạo');
 
                 $table->timestamp('updated_at')
-                    ->default(DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'))
+                    ->default(DB::raw('CURRENT_TIMESTAMP'))
                     ->comment('ngày cập nhật');
 
                 $table->timestamp('deleted_at')
@@ -36,7 +36,7 @@ class CreateCouponsTable extends Migration
                     ->comment('ngày xóa tạm');
                 $table->unique(['code']);
             });
-            DB::statement("ALTER TABLE `coupons` comment 'Thông tin mua hàng'");
+            //DB::statement("ALTER TABLE `coupons` comment 'Thông tin mua hàng'");
         }
     }
 

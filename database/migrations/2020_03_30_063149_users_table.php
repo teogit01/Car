@@ -21,14 +21,14 @@ class UsersTable extends Migration
                 $table->string('name')->nullable()->comment('họ và tên');
                 $table->string('address')->nullable()->comment('địa chỉ');
                 $table->string('tel')->nullable()->comment('sdt');
-                $table->integer('user_type_id')->nullable()->unsigned()->comment('id loại người dùng');
+                $table->string('role')->nullable()->comment('vai tro admin, user');
                 // log time
                 $table->timestamp('created_at')
                     ->default(DB::raw('CURRENT_TIMESTAMP'))
                     ->comment('ngày tạo');
 
                 $table->timestamp('updated_at')
-                    ->default(DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'))
+                    ->default(DB::raw('CURRENT_TIMESTAMP'))
                     ->comment('ngày cập nhật');
 
                 $table->timestamp('deleted_at')
@@ -37,7 +37,7 @@ class UsersTable extends Migration
                 // Setting unique
                 $table->unique(['username']);
             });
-            DB::statement("ALTER TABLE `users` comment 'Thông tin người dùng'");
+            //DB::statement("ALTER TABLE `users` comment 'Thông tin người dùng'");
         }
     }
 

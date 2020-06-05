@@ -29,6 +29,10 @@
         <label for="">{{__('Phone') }} :</label>
         <input type="text" name="shipping_phone" id="">
     </div>
+    <div>
+        <label for="">{{__('Service') }} :</label>
+        <input type="text" name="shipping_sv" id="">
+    </div>
     <table>
         <thead>
             <th>

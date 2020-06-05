@@ -9,6 +9,7 @@ use App\Models\CarType;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
 
+use Illuminate\Support\Str;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 
@@ -64,6 +65,7 @@ class CarDetailController extends Controller
         $dataInserts = [];
         $dataInserts = $request;
         $dataInserts['image'] = json_encode($nameImgs);
+        $dataInserts['code'] = Str::random(5);
     
         $data = $this->model->web_insert($dataInserts);
         

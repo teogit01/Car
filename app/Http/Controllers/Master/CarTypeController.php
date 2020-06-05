@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Master;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\CarType;
-
+use Illuminate\Support\Str;
 class CarTypeController extends Controller
 {
     // Hàm khởi tạo.
@@ -56,6 +56,7 @@ class CarTypeController extends Controller
             'request' => $request,
         ];
         $this->config($config);
+        $this->request['code'] = Str::random(5); 
         $data = $this->model->web_insert($this->request);
         
         return redirect('admin/cartype')->with('success', 'Thêm thành công');

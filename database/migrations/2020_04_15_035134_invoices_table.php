@@ -28,7 +28,7 @@ class InvoicesTable extends Migration
                 // $table->integer('user_id')->unsigned()->comment('id nhân viên');
                 $table->integer('user_id');
                 $table->integer('phone');
-
+                $table->string('service')->nullable();
                 $table->enum('status', ['đang chờ','đã liên hệ','đã nhận cọc','đã thanh toán','hoàn thành','hủy'])->default('đang chờ');
                 $table->integer('grand_total');
                 $table->date('date')->nullable();
@@ -43,14 +43,14 @@ class InvoicesTable extends Migration
                     ->comment('ngày tạo');
 
                 $table->timestamp('updated_at')
-                    ->default(DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'))
+                    ->default(DB::raw('CURRENT_TIMESTAMP'))
                     ->comment('ngày cập nhật');
 
                 $table->timestamp('deleted_at')
                     ->nullable()
                     ->comment('ngày xóa tạm');
             });
-            DB::statement("ALTER TABLE `invoices` comment 'Thông tin phiếu đặt'");
+            //DB::statement("ALTER TABLE `invoices` comment 'Thông tin phiếu đặt'");
         }
     }
 
