@@ -28,7 +28,7 @@ class InvoicesTable extends Migration
                 // $table->integer('user_id')->unsigned()->comment('id nhân viên');
                 $table->integer('user_id');
                 $table->integer('phone');
-
+                $table->string('service')->nullable();
                 $table->enum('status', ['đang chờ','đã liên hệ','đã nhận cọc','đã thanh toán','hoàn thành','hủy'])->default('đang chờ');
                 $table->integer('grand_total');
                 $table->date('date')->nullable();

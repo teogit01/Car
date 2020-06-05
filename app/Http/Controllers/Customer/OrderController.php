@@ -57,6 +57,7 @@ class OrderController extends Controller
         $order->item_count = \Cart::session(auth()->id())->getContent()->count();
         $order->date = $request->input('date');
         $order->time = $request->input('time');
+        $order->service = $request->input('shipping_sv');
 
         $order->user_id = auth()->id();
 

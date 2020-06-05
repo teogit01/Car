@@ -13,7 +13,7 @@
 		<section class="ftco-section">
 			
 			@if (isset($amount))
-				<div style="margin-top: -50px;"><h3>có '{{ $amount }}' kết quả tìm kím {{ $key }}</h3></div>
+				<div style="margin-top: -50px;"><h3>có '{{ $amount }}' kết quả tìm kiếm '{{ $key }}'</h3></div>
 			@endif
 
 			<div class="container">
@@ -35,13 +35,14 @@
 														<p class="meta">
 															<!-- <span><i class="icon-calendar mr-2"></i>June 28, 2019</span> -->
 															<span><a href="single.html"><i class="icon-folder-o mr-2"></i>{{__('Type') }}</a></span>
-															<span><a class="" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"><i class="icon-comment2 mr-2"></i>Comment</span></a><input style="border: none;padding-left: 0;background-color: #fff; color: black" disabled type="number" id='count-comment'value='{{count($comments)}}'>
+															<span><a class="" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"><i class="icon-comment2 mr-2"></i>Comment</span></a>
+															<input style="border: none;padding-left: 0;background-color: #fff; color: black" disabled type="number" id='count-comment'value='{{count($comments ?? "0")}}>
 														</p>
 														<div class="collapse" id="collapseExample">
 															<div class="card card-body" style="border: none;margin-left: 50px;margin-top: -20px">
 																<div id='load-comment'>
-																@if ($comments)
-																@foreach ($comments as $comment)
+																@if ($comments ?? '')
+																@foreach ($comments ?? '' as $comment)
 																<div style="display: flex;">
 
 																	<div style="width: 90%">

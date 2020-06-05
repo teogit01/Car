@@ -59,7 +59,7 @@
         <div>
             <form action="{{route('cart.coupon')}}" method='get'>
                 <input id="coupon_code" class="input-text" name="coupon_code" value=""placeholder="Code" type="text" required>
-                <input class="button" name="apply_coupon" value="Confirm" type="submit">
+                <input class="btn-info" name="apply_coupon" value="Confirm" type="submit">
             </form>
         </div>
 
@@ -69,7 +69,9 @@
                 <li>{{__('SubTotal') }}: <span><input  id='subtotal' type="text" name="" value="{{\Cart::session(auth()->id())->getSubTotal()}} VNĐ"></span></li>
                 <li>{{__('Total') }}: <span>{{\Cart::session(auth()->id())->getTotal()}}</span></li>
             </ul>
-            <a href="{{route ('cart.checkout')}}">{{__('CheckOut') }}</a>
+            @if (\Cart::session(auth()->id())->getSubTotal() > 0) 
+                <a href="{{route ('cart.checkout')}}" role="button" class="btn btn-success">{{__('CheckOut') }} </a>
+            @endif
         </div>
     </div>
 </div>
