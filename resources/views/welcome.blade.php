@@ -7,8 +7,8 @@
     
   </head>
   <body>
-  <!-- Load Facebook SDK for JavaScript -->
-  <div id="fb-root"></div>
+   <!-- Load Facebook SDK for JavaScript -->
+   <div id="fb-root"></div>
       <script>
         window.fbAsyncInit = function() {
           FB.init({
@@ -32,8 +32,5 @@
   logged_in_greeting="Xin chào Thuê xe Cần Thơ có thể giúp gì cho bạn?"
   logged_out_greeting="Xin chào Thuê xe Cần Thơ có thể giúp gì cho bạn?">
       </div>
-
-  
-
   </body>
 </html>

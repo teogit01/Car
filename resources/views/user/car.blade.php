@@ -55,7 +55,12 @@
 																@endif
 																</div>
 
-																<input type="text" id='comment' name="comment">
+																<div style="display: flex;">
+
+																	<input type="text" style="width: 95%" id='comment' name="comment">
+																	&nbsp;&nbsp;&nbsp;
+																	<img style="width: 25px;height: 25px" src="{{asset('icon/send.png')}}">
+																</div>
 															</div>
 															<div style="text-align: right;margin-right: 20px ">
 																<button id='submit' class="btn btn-info btn-light" onclick='comment({{Auth::id()}},{{$car->id}})'>Comment</button>

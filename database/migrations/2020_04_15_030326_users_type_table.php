@@ -25,14 +25,14 @@ class UsersTypeTable extends Migration
                     ->comment('ngày tạo');
 
                 $table->timestamp('updated_at')
-                    ->default(DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'))
+                    ->default(DB::raw('CURRENT_TIMESTAMP'))
                     ->comment('ngày cập nhật');
 
                 $table->timestamp('deleted_at')
                     ->nullable()
                     ->comment('ngày xóa tạm');
             });
-            DB::statement("ALTER TABLE `users_type` comment 'Thông tin loại người dùng'");
+            //DB::statement("ALTER TABLE `users_type` comment 'Thông tin loại người dùng'");
         }
     }
 

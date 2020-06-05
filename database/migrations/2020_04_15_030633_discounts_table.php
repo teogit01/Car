@@ -27,14 +27,14 @@ class DiscountsTable extends Migration
                     ->comment('ngày tạo');
 
                 $table->timestamp('updated_at')
-                    ->default(DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'))
+                    ->default(DB::raw('CURRENT_TIMESTAMP'))
                     ->comment('ngày cập nhật');
 
                 $table->timestamp('deleted_at')
                     ->nullable()
                     ->comment('ngày xóa tạm');
             });
-            DB::statement("ALTER TABLE `discounts` comment 'Thông tin bảng khuyến mãi'");
+            //DB::statement("ALTER TABLE `discounts` comment 'Thông tin bảng khuyến mãi'");
         }
     }
 

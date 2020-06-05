@@ -19,13 +19,13 @@
                         @endauth
                     </div></span></li>
 			<li>
-			<div class="dropdown">
+			<div class="dropdown" style="margin-top: 20px">
 				<button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 					{{__('Language')}}
 				</button>
-				<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-					<a class="dropdown-item" href="{{route('language.index', ['en'])}}">US-UK</a>
-					<a class="dropdown-item" href="{{route('language.index', ['vi'])}}">VN</a>
+				<div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="--text-align: center;border: none;margin-left: 20px;">
+					<a class="dropdown-item" style="background-color: #fff" href="{{route('language.index', ['en'])}}">US-UK</a>
+					<a class="dropdown-item" style="background-color: #fff" href="{{route('language.index', ['vi'])}}">VN</a>
 				</div>
 				</div>
 			</li>
