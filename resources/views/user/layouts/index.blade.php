@@ -28,7 +28,7 @@
   logged_out_greeting="Xin chào Thuê xe Cần Thơ có thể giúp gì cho bạn?">
       </div>
 
-      <h1>chau ancahasdlkqwjlkj chau</h1>
+      
 	<div id="colorlib-page">
     
 		<a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle"><i></i></a>
@@ -39,8 +39,11 @@
       <div style="width: 75%;">
         @yield('banner')
       </div>
+      
     </div>
+    
     @yield('main')
+    
 	</div><!-- END COLORLIB-PAGE -->
 
   <!-- loader -->
