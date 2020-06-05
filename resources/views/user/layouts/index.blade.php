@@ -51,6 +51,6 @@
 
 
   @include('user.layouts.js')
-    
+  
   </body>
 </html>

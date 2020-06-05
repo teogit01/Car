@@ -67,7 +67,7 @@
 															</div>
 														</div>
 													</div>
-													<span><a href="{{route('cart.add', $car->id)}}" class="btn btn-info" role="button">Add to cart</a></span>
+													<span><a href="{{route('cart.add', $car->id)}}" class="btn btn-info" role="button">{{__('Add to cart') }}</a></span>
 													<!-- <p><a href="#" class="btn-custom">Read More <span class="ion-ios-arrow-forward"></span></a></p> -->
 												</div>
 											</div>
