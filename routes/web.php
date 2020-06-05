@@ -98,6 +98,10 @@ route::prefix('/admin')->group(function(){
 	route::prefix('/banner')->group(function(){
 		route::get('/','Master\BannerController@index');
 	});
+
+	route::prefix('/statistic')->group(function(){
+		route::get('/','Master\StatisticController@index')->name('statistic.index');
+	});
 });
 
 route::prefix('/customer')->group(function(){
@@ -121,13 +125,9 @@ route::prefix('/customer')->group(function(){
 route::prefix('/user')->group(function(){
 	route::get('/','User\UserController@index')->name('home');
 	route::get('/car','User\UserController@car')->name('car');
-	route::post('/car/comment','User\UserController@comment')->name('car.comment');
 });
 
 /////////////////////  Search ////////////////////////////////
 //route::post('/search','SearchController@car')->name('search.car');
 //route::get('/search','SearchController@getSearch')->name('get.search');
 route::post('/search','SearchController@search')->name('search');
-// route::get('/search','SearchController@test');
-
-
