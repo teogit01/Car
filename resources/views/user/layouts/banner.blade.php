@@ -26,7 +26,7 @@
 
 <script type="text/javascript">
 	var i = -1;
-	var images = ["{{asset('img/banner/vios.png')}}","{{asset('img/banner/mercedes.jpeg')}}"]
+	var images = ["{{asset('img/banner/vios.png')}}","{{asset('img/banner/mercedes.jpeg')}}", "{{asset('img/banner/audi.png')}}"]
 	function back(){
 
 		i--;
@@ -46,7 +46,7 @@
 	$(document).ready(function(){
 		setInterval(function(){			
 			i++
-			if (i==2)
+			if (i==3)
 				i=0
 			$('.showBg').attr('src',images[i])
 		},3000)

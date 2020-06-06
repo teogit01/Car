@@ -59,6 +59,15 @@
               </p>
             </a>
           </li>
+          {{-- Thống kê --}}
+          <li class="nav-item">
+            <a href="{{route('statistic.index')}}" class="nav-link">
+              <i class="nav-icon far fa-chart-bar"></i>
+              <p>
+                Thống kê
+              </p>
+            </a>
+          </li>
           {{-- Xe --}}
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
@@ -89,12 +98,12 @@
               <i class="nav-icon fas fa-users"></i>
               <p>
                 Tài khoản
-                <!-- <i class="right fas fa-angle-left"></i> -->
+                <i class="right fas fa-angle-left"></i>
               </p>
             </a>
-            <!-- <ul class="nav nav-treeview">
+            <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="{{route('account.index')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Admin</p>
                 </a>
@@ -105,7 +114,7 @@
                   <p>Thành viên</p>
                 </a>
               </li>
-            </ul> -->
+            </ul>
           </li>
         </ul>
       </nav>
