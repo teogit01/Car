@@ -99,6 +99,11 @@ route::prefix('/admin')->group(function(){
     	Route::post('/edit/{id}', 'Master\CouponController@postUpdate')->name('coupon.postupdate');
     	Route::post('/delete', "Master\CouponController@delete")->name('coupon.delete');
 	});
+	// ACCOUNT
+	route::prefix('/account')->group(function(){
+		route::get('/','Master\AccountController@index')->name('account.index');
+		
+	});
 	
 	// DISCOUNTTYPE
 	route::prefix('/discounttype')->group(function(){
