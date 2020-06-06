@@ -85,7 +85,7 @@
           </li>
           {{-- Tài khoản --}}
           <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
+            <a href="{{route('account.index')}}" class="nav-link">
               <i class="nav-icon fas fa-users"></i>
               <p>
                 Tài khoản
