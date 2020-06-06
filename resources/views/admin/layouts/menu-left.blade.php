@@ -52,7 +52,7 @@
           </li>
           {{-- Phiếu đặt --}}
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="{{route('invoice.index')}}" class="nav-link">
               <i class="nav-icon fas fa-file-invoice-dollar"></i>
               <p>
                 Phiếu đặt
@@ -89,10 +89,10 @@
               <i class="nav-icon fas fa-users"></i>
               <p>
                 Tài khoản
-                <i class="right fas fa-angle-left"></i>
+                <!-- <i class="right fas fa-angle-left"></i> -->
               </p>
             </a>
-            <ul class="nav nav-treeview">
+            <!-- <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="#" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
@@ -105,7 +105,7 @@
                   <p>Thành viên</p>
                 </a>
               </li>
-            </ul>
+            </ul> -->
           </li>
         </ul>
       </nav>

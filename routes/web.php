@@ -17,6 +17,10 @@ Route::get('/', function () {
 	
     return redirect('user');
 });
+Route::get('/about', function () {
+	
+    return view('about');
+})->name('about');
 // Route::get('/', 'Customer\MapController@index');
 
 Route::get('/login','login@index')->name('login');
@@ -73,6 +77,17 @@ route::prefix('/admin')->group(function(){
 		Route::get('/{id}', 'Master\ServiceController@getUpdate')->name('service.getupdate');
     	Route::post('/edit/{id}', 'Master\ServiceController@postUpdate')->name('service.postupdate');
     	Route::post('/delete', "Master\ServiceController@delete")->name('service.delete');
+	});
+	// INVOICE
+	route::prefix('/invoice')->group(function(){
+		route::get('/','Master\InvoiceController@index')->name('invoice.index');
+		Route::get('/{id}', 'Master\InvoiceController@getUpdate')->name('invoice.getupdate');
+		
+		Route::post('/edit', 'Master\InvoiceController@postUpdate')->name('invoice.postupdate');
+		
+		Route::get('/detail/{id}', 'Master\InvoiceController@getDetail');
+		// Cap nhat Trang Thai Don Hang
+		
 	});
 
 	// COUPON

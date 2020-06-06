@@ -40,4 +40,6 @@ class InvoiceDetail extends Model
         ];
         return parent::base_update($this->request);
     }
+
+    
 }

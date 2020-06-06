@@ -20,6 +20,7 @@
 				<div class="row px-md-4">
 					@if((count($cars) > 0))
 						@foreach($cars as $index => $car)
+							@if($car->status == 0)
 							<table>
 								<tr>
 									<td>
@@ -76,14 +77,21 @@
 									</td>
 								</tr>
 							</table>
+							@endif
 						@endforeach
+						
 					
 					@endif
-					
 				</div>
-				<div class="row">
+				<br>
+				<div style='text-align:center;margin-left:40%'>{{ $cars->links() }}</div>
+				
+				
+				<!-- <div class="row">
 					<div class="col text-center text-md-left">
+						
 						<div class="block-27">
+						
 							<ul>
 								<li><a href="#">&lt;</a></li>
 								<li class="active"><span>1</span></li>
@@ -95,7 +103,7 @@
 							</ul>
 						</div>
 					</div>
-				</div>
+				</div> -->
 			</div>
 		</section>
 	</div><!-- END COLORLIB-MAIN -->

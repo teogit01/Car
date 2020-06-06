@@ -24,7 +24,7 @@ class UserController extends Controller
 
     public function car(Request $request) {
 
-    	$cars = CarDetail::all();
+    	$cars = CarDetail::paginate(1);
         $comments = Comment::all();
     	return view('user.car',['cars'=>$cars,'comments'=>$comments]);
     }
