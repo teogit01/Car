@@ -24,12 +24,7 @@
             <p class="mb-0"></p>
         </div>
     @endif
-    <div class="d-flex" style="justify-content: flex-end;margin: 5px;">
-            <div>
-                <a href="{{route('cartype.add')}}"><button class="btn btn-primary" style="width: 90px;color: black;"> Thêm</button>
-                </a>
-            </div>
-    </div>
+    
 
     <form method="post" action="{{route('cartype.getData')}}">
         @csrf
@@ -49,7 +44,7 @@
                                                     <th>Tài Khoản</th>
                                                     <th>Mật Khẩu</th>
                                                     <th>Tên</th>
-                                                    <th>Email</th>
+                                                    
                                                     <th>Cấp Độ</th>
                                                 </tr>
                                             </thead>
@@ -60,7 +55,7 @@
                                                 <td>{{$item['username']}}</td>
                                                 <td>{{$item['password']}}</td>
                                                 <td>{{$item['name']}}</td>
-                                                <td>{{$item['email']}}</td>
+                                                
                                                 <td>
                                                         @if($item['role'] == 'Admin')
                                                         admin
