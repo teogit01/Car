@@ -1,4 +1,3 @@
-
 @extends('user.layouts.index')
 @section('main')
 <style type="text/css">
@@ -100,12 +99,64 @@
                 fusd
             </div>
         </div>
-    </section>
-</div><!-- END COLORLIB-MAIN -->
+<form style="width: 500px; margin-left: 25%; height: 700px" action="{{route('orders.store')}}" method="post">
+    @csrf
+    <div class="form-group">
+        <label for="">{{__('Name') }} :</label>
+        <input class="form-control" type="text" name="shipping_fullname" id="">
+    </div>
+    <div class="form-group">
+        <label for="">{{__('Address') }} :</label>
+        <input class="form-control" type="text" name="shipping_address" id="">
+    </div>
+    <div class="form-group">
+        <label for="">{{__('Phone') }} :</label>
+        <input class="form-control" type="number"  name="shipping_phone" id="">
+    </div>
+    <div class="form-group">
+        <label for="">{{__('Service') }} :</label>
+        <input class="form-control" type="text" name="shipping_sv" id="">
+    </div>
 
+    <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputEmail4">{{__('Date Time Receive') }}</label>
+      <input class="form-control" type="time" name="time">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="inputPassword4">.</label>
+      <input class="form-control" type="date" name="date">
+    </div>
+  </div>
+    
+                   
+
+    <h4>{{__('Payment Method') }}</h4>
+
+    <div>
+        <label>
+            <input type="radio" name="payment_method" id="" value="Tiền Mặt" checked>
+            {{__('Cash') }}
+
+        </label>
+
+    </div>
+
+    <div>
+        <label>
+            <input type="radio" name="payment_method" id="" value="paypal">
+            Paypal
+
+        </label>
+
+    </div>
+
+
+    <button class="btn btn-success" type="submit">{{__('CheckOut') }}</button>
+
+
+</form>
+
+</div>
 
 @endsection
-
-
-
-

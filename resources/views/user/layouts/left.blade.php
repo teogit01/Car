@@ -106,7 +106,7 @@
 			@endif
 			<li class="home colorlib" id='home'><a href="{{route('home')}}">{{__('Home') }}</a></li>
 			<li class="car colorlib" id='car'><a href="{{route('car')}}">{{__('Car') }}</a></li>
-			<li class="about colorlib"><a href="about.html">{{__('About') }}</a></li>
+			<li class="about colorlib"><a href="{{route('about')}}">{{__('About') }}</a></li>
 			<li class="contact"><a href="contact.html">{{__('Contact') }}</a></li>
 			<li><a href="{{route('cart.index')}}">
 				<img style="width: 30px;height: 30px" src="{{asset('src/user/img/cart.png')}}">

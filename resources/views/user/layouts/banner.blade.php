@@ -6,11 +6,10 @@
 </style>
 <div class="banner-bg" style="width: 100%;height: 400px; background-image: url('https://via.placeholder.com/')">
 	
-
-	
 <!-- 	<div style="width: 100%">
 		<img src="https://via.placeholder.com/780x300" style="position: absolute;width: 70%" class="showBg" > 
 	</div> -->
+
 	
 
 	<!-- <img src="https://via.placeholder.com/980x300" style="position: absolute; display: none" >
@@ -56,7 +55,7 @@
 
 <script type="text/javascript">
 	var i = -1;
-	var images = ['https://via.placeholder.com/980x400','https://via.placeholder.com/980x400','https://via.placeholder.com/980x400']
+	var images = ["{{asset('img/banner/vios.png')}}","{{asset('img/banner/mercedes.jpeg')}}", "{{asset('img/banner/audi.png')}}"]
 	function back(){
 
 		i--;

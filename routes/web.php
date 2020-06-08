@@ -17,6 +17,10 @@ Route::get('/', function () {
 	
     return redirect('user');
 });
+Route::get('/about', function () {
+	
+    return view('about');
+})->name('about');
 // Route::get('/', 'Customer\MapController@index');
 
 Route::get('/login','login@index')->name('login');
@@ -74,6 +78,17 @@ route::prefix('/admin')->group(function(){
     	Route::post('/edit/{id}', 'Master\ServiceController@postUpdate')->name('service.postupdate');
     	Route::post('/delete', "Master\ServiceController@delete")->name('service.delete');
 	});
+	// INVOICE
+	route::prefix('/invoice')->group(function(){
+		route::get('/','Master\InvoiceController@index')->name('invoice.index');
+		Route::get('/{id}', 'Master\InvoiceController@getUpdate')->name('invoice.getupdate');
+		
+		Route::post('/edit', 'Master\InvoiceController@postUpdate')->name('invoice.postupdate');
+		
+		Route::get('/detail/{id}', 'Master\InvoiceController@getDetail');
+		// Cap nhat Trang Thai Don Hang
+		
+	});
 
 	// COUPON
 	route::prefix('/coupon')->group(function(){
@@ -83,6 +98,11 @@ route::prefix('/admin')->group(function(){
 		Route::get('/{id}', 'Master\CouponController@getUpdate')->name('coupon.getupdate');
     	Route::post('/edit/{id}', 'Master\CouponController@postUpdate')->name('coupon.postupdate');
     	Route::post('/delete', "Master\CouponController@delete")->name('coupon.delete');
+	});
+	// ACCOUNT
+	route::prefix('/account')->group(function(){
+		route::get('/','Master\AccountController@index')->name('account.index');
+		
 	});
 	
 	// DISCOUNTTYPE
@@ -97,6 +117,10 @@ route::prefix('/admin')->group(function(){
 	/////////////////////  Banner ////////////////////////////////
 	route::prefix('/banner')->group(function(){
 		route::get('/','Master\BannerController@index');
+	});
+
+	route::prefix('/statistic')->group(function(){
+		route::get('/','Master\StatisticController@index')->name('statistic.index');
 	});
 });
 
@@ -121,21 +145,23 @@ route::prefix('/customer')->group(function(){
 route::prefix('/user')->group(function(){
 	route::get('/','User\UserController@index')->name('home');
 	route::get('/car','User\UserController@car')->name('car');
+  
 	route::post('/car/comment','User\UserController@comment')->name('car.comment');
 	route::post('/car/comment/delete','User\UserController@commentDel')->name('car.comment.delete');
 
 	// profile user
 	route::get('/profile/{id}','User\UserController@profile')->name('profile');
+
 });
 
 /////////////////////  Search ////////////////////////////////
 //route::post('/search','SearchController@car')->name('search.car');
 //route::get('/search','SearchController@getSearch')->name('get.search');
 route::post('/search','SearchController@search')->name('search');
+
 // route::get('/search','SearchController@test');
 
 route::get('/test',function(){
 	return view("test");
 });
-
 
