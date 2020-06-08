@@ -24,23 +24,40 @@
 			</div>
 		</div>
 	</div> -->
+	<?php
+		use Illuminate\Support\Facades\File;
+		use Illuminate\Support\Facades\Storage;
+		$bn = json_decode(Storage::get('public/banners.txt'));
+	?>
 
 	<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval="2000"> 
 		<ol class="carousel-indicators">
+			@if(isset($bn[0]))
 			<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+			@endif
+			@if(isset($bn[1]))
 			<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+			@endif
+			@if(isset($bn[2]))
 			<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+			@endif
 		</ol>
 		<div class="carousel-inner">
+			@if(isset($bn[0]))
 			<div class="carousel-item active">
-				<img class="d-block w-100" src="https://via.placeholder.com/980x400" alt="First slide">
+				<img class="d-block w-100" style="width: 100%;height: 400px;" src="{{asset('img/banners')}}/{{$bn[0]}}" alt="First slide">
 			</div>
+			@endif
+			@if(isset($bn[1]))
 			<div class="carousel-item">
-				<img class="d-block w-100" src="https://via.placeholder.com/980x400" alt="Second slide">
+				<img class="d-block w-100" style="width: 100%;height: 400px;" src="{{asset('img/banners')}}/{{$bn[1]}}" alt="Second slide">
 			</div>
+			@endif
+			@if(isset($bn[2]))
 			<div class="carousel-item">
-				<img class="d-block w-100" src="https://via.placeholder.com/980x400" alt="Third slide">
+				<img class="d-block w-100" style="width: 100%;height: 400px;" src="{{asset('img/banners')}}/{{$bn[2]}}" alt="Third slide">
 			</div>
+			@endif
 		</div>
 		<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
 			<span class="carousel-control-prev-icon" aria-hidden="true"></span>

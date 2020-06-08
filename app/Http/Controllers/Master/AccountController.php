@@ -42,7 +42,12 @@ class AccountController extends Controller
 
         return $data;
     }
+    // Detail account
 
+    public function detail(Request $request){
+        $user = User::find($request->id);
+        return view('admin.account.detail',['user'=>$user]);
+    }
 
     
 }

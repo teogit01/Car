@@ -5,9 +5,11 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 
 use App\Models\CarDetail;
 use App\Models\Comment;
+use App\Models\User;
 
 class UserController extends Controller
 {
@@ -58,7 +60,27 @@ class UserController extends Controller
         }
     }
     // Profile
-    public function profile(){
-        return 'ok';
+    public function profile(Request $request){
+        // $user = User::find(Auth::id());
+        //return Auth::user();
+        return view('user.profile',['user'=>Auth::user()]);
+    }
+
+    // Edit Profile
+    public function edit(Request $request){
+        $user = User::find($request->id);
+        if ($request->has('avatar')){
+            $path = public_path('img/avatars');
+            $name = Str::random(5).'_'.$request->avatar->getClientOriginalName();
+            $request->avatar->move($path,$name);
+            $user->avatar = $name;
+        } 
+        $user->name = isset($request->name)? $request->name : $user->name;
+        $user->address = isset($request->address)? $request->address : $user->address;
+        $user->tel = isset($request->tel)? $request->tel : $user->tel;
+        $user->email = isset($request->email)? $request->email : $user->email;
+        $user->save();
+        return back()->with('success','Edit Successfully!');
+
     }
 }

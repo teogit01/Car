@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
 	
     return redirect('user');
-});
+})->name('user');
 Route::get('/about', function () {
 	
     return view('about');
@@ -102,6 +102,7 @@ route::prefix('/admin')->group(function(){
 	// ACCOUNT
 	route::prefix('/account')->group(function(){
 		route::get('/','Master\AccountController@index')->name('account.index');
+		route::get('/{id}','Master\AccountController@detail')->name('admin.account.detail');
 		
 	});
 	
@@ -116,7 +117,9 @@ route::prefix('/admin')->group(function(){
 	});
 	/////////////////////  Banner ////////////////////////////////
 	route::prefix('/banner')->group(function(){
-		route::get('/','Master\BannerController@index');
+		route::get('/','Master\BannerController@index')->name('admin.banner');
+		route::post('/add','Master\BannerController@add')->name('admin.banner.add');
+		route::post('/detete','Master\BannerController@delete')->name('admin.banner.delete');
 	});
 
 	route::prefix('/statistic')->group(function(){
@@ -151,6 +154,7 @@ route::prefix('/user')->group(function(){
 
 	// profile user
 	route::get('/profile/{id}','User\UserController@profile')->name('profile');
+	route::post('/profile/{id}/edit','User\UserController@edit')->name('profile.edit');
 
 });
 

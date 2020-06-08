@@ -7,6 +7,7 @@
 		input { --border: none;--height: 30px; border: 1px solid #ddd; padding-left: 20px; border-radius: 10px }
 		input:focus { outline: none; }
 		.delComment { cursor: pointer; }
+		table { width: 100%; }
 	</style>
 
 <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -17,7 +18,7 @@
 				<div style="margin-top: -50px;"><h3>có '{{ $amount }}' kết quả tìm kiếm '{{ $key }}'</h3></div>
 			@endif
 
-			<div class="container">
+			<div class="container" style="width: 100%">
 				<div class="row px-md-4">
 					@if((count($cars) > 0))
 						@foreach($cars as $index => $car)
@@ -25,18 +26,17 @@
 							<table>
 								<tr>
 									<td>
-										<div class="col-md-12">
+										<div class="col-md-12" style="width: 100%">
 											<div class="blog-entry ftco-animate d-md-flex">
-												<a href="single.html" class="img img-2" style="background-image: url({{asset('src/user/images/image_1.jpg')}});"></a>
+												<a href="single.html" class="img img-2" style="background-image: url({{asset('img/carDetail')}}/{{json_decode($car->image)[0]}});"></a>
 												<div class="text text-2 pl-md-4">
 													<h3 class="mb-2"><a href="single.html">{{$car->name}}</a></h3>
-													<p class="mb-4">A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-													<p>{{__('Price') }} : {{$car->rental}}/h</p>
-													<p>{{__('Available') }} : 10</p>
+													<p class="mb-4">{{$car->description}}.</p>
+													<p>{{__('Price') }} : {{number_format($car->rental,0,'','.')}}/h</p>
 													<div class="meta-wrap">
 														<p class="meta">
 															<!-- <span><i class="icon-calendar mr-2"></i>June 28, 2019</span> -->
-															<span><a href="single.html"><i class="icon-folder-o mr-2"></i>{{__('Type') }}</a></span>
+															<span><a href="single.html"><i class="icon-folder-o mr-2"></i>{{__('Type') }}</a></span><span>{{$car->cartype->name}}</span>
 															<span><a class="" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"><i class="icon-comment2 mr-2"></i>Comment</span></a>
 															<input style="border: none;padding-left: 0;background-color: #fff; color: black"disabled type="number" id='count-comment'value='{{count($comments)}}'>
 														</p>

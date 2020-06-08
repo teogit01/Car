@@ -20,6 +20,8 @@ class User extends BaseModel
         'name',
         'address',
         'tel',
+        'email',
+        'avatar',
         'role',
         'created_at',
         'updated_at',
