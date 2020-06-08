@@ -40,22 +40,19 @@
                                         <table class="">
                                             <thead class="">
                                                 <tr>
+                                                    <th>Stt</th>
                                                     <th>Mã</th>
-                                                    <th>Tài Khoản</th>
-                                                    <th>Mật Khẩu</th>
                                                     <th>Tên</th>
+                                                    <th>Cấp độ</th>
                                                     
-                                                    <th>Cấp Độ</th>
                                                 </tr>
                                             </thead>
                                             @if (isset($data))
-                                            @foreach ($data as $item)
-                                            <tr>
+                                            @foreach ($data as $index => $item)
+                                            <tr ondblclick='detail({{$item->id}})'>
+                                                <td>{{$index + 1}}</td>
                                                 <td>{{$item['id']}}</td>
-                                                <td>{{$item['username']}}</td>
-                                                <td>{{$item['password']}}</td>
                                                 <td>{{$item['name']}}</td>
-                                                
                                                 <td>
                                                         @if($item['role'] == 'Admin')
                                                         admin
@@ -116,6 +113,11 @@
             });
         });
 
+        //detail
+        function detail(id){
+            //alert(id)
+            window.location= path+'admin/account/'+id;
+        }
     </script>
 @endsection
 
