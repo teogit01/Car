@@ -145,9 +145,23 @@ route::prefix('/customer')->group(function(){
 route::prefix('/user')->group(function(){
 	route::get('/','User\UserController@index')->name('home');
 	route::get('/car','User\UserController@car')->name('car');
+  
+	route::post('/car/comment','User\UserController@comment')->name('car.comment');
+	route::post('/car/comment/delete','User\UserController@commentDel')->name('car.comment.delete');
+
+	// profile user
+	route::get('/profile/{id}','User\UserController@profile')->name('profile');
+
 });
 
 /////////////////////  Search ////////////////////////////////
 //route::post('/search','SearchController@car')->name('search.car');
 //route::get('/search','SearchController@getSearch')->name('get.search');
 route::post('/search','SearchController@search')->name('search');
+
+// route::get('/search','SearchController@test');
+
+route::get('/test',function(){
+	return view("test");
+});
+

@@ -26,7 +26,7 @@
                     @foreach ($cartItems as $item)
                     <tr>
                         <td>{{$item->name}}</td>
-                        <td><input type="text" name="" id="price" value="{{$item->price}}" ></td>
+                        <td><input type="text" name="" id="price" value="{{number_format($item->price,0,'','.')}}" ></td>
 
                         <td>
                             <!-- <input name="quantity" class="form-control time" type="number" min=1 value="{{ $item->quantity }}"> -->
@@ -66,8 +66,8 @@
         <div>
             <h2>Cart totals</h2>
             <ul>
-                <li>{{__('SubTotal') }}: <span><input  id='subtotal' type="text" name="" value="{{\Cart::session(auth()->id())->getSubTotal()}} VNĐ"></span></li>
-                <li>{{__('Total') }}: <span>{{\Cart::session(auth()->id())->getTotal()}}</span></li>
+                <li>{{__('SubTotal') }}: <span><input  id='subtotal' type="text" name="" value="{{number_format(\Cart::session(auth()->id())->getSubTotal(),0,'','.')}} VNĐ"></span></li>
+                <li style="color: black">{{__('Total') }}: <span style="color: black">{{ number_format(\Cart::session(auth()->id())->getTotal(),0,'','.')}} VNĐ</span></li>
             </ul>
             @if (\Cart::session(auth()->id())->getSubTotal() > 0) 
                 <a href="{{route ('cart.checkout')}}" role="button" class="btn btn-success">{{__('CheckOut') }} </a>
@@ -82,7 +82,8 @@
         
         const value = $('.time').val() * $('#price').val()
         
-        $('#subtotal').val(value+' VND')
+        
+        $('#subtotal').val(value+'.000 VNĐ')
     })
 </script>
 

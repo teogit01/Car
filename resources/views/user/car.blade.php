@@ -6,6 +6,7 @@
 	<style type="text/css">
 		input { --border: none;--height: 30px; border: 1px solid #ddd; padding-left: 20px; border-radius: 10px }
 		input:focus { outline: none; }
+		.delComment { cursor: pointer; }
 	</style>
 
 <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -37,20 +38,30 @@
 															<!-- <span><i class="icon-calendar mr-2"></i>June 28, 2019</span> -->
 															<span><a href="single.html"><i class="icon-folder-o mr-2"></i>{{__('Type') }}</a></span>
 															<span><a class="" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"><i class="icon-comment2 mr-2"></i>Comment</span></a>
-															<input style="border: none;padding-left: 0;background-color: #fff; color: black" disabled type="number" id='count-comment'value='{{count($comments ?? "0")}}>
+															<input style="border: none;padding-left: 0;background-color: #fff; color: black"disabled type="number" id='count-comment'value='{{count($comments)}}'>
 														</p>
 														<div class="collapse" id="collapseExample">
 															<div class="card card-body" style="border: none;margin-left: 50px;margin-top: -20px">
 																<div id='load-comment'>
-																@if ($comments ?? '')
-																@foreach ($comments ?? '' as $comment)
-																<div style="display: flex;">
 
-																	<div style="width: 90%">
+																@if (isset($comments))
+																@foreach ($comments as $comment)
+																<div style="display: flex;">
+																	
+																	<div style="width: 15%;">
+																		{{$comment->user->name}} :
+																	</div>
+
+
+																	<div style="width: 85%">
 																		{{$comment->content}}
 																	</div>
-		
-																	<div style="text-align: right;width: 10%">. . .</div>
+																	@if($comment->user_id == Auth::id())
+																		<div style="text-align: right;width: 10%" class="delComment" onclick='delComment({{$comment->user_id}},{{$comment->id}})'><img style="width: 20px; height: 20px" src="{{asset('icon/eraser.png')}}">
+																		</div>
+																	@else
+																	<div style="text-align: right;width: 10%"></div>
+																	@endif
 																</div>
 																<hr style="margin-top: -3px;color: #eee">
 																@endforeach
@@ -128,6 +139,29 @@
                         $('#load-comment').html(data)
                         $('#comment').val('')
                         $('#count-comment').val(countComment+1)
+                        //alert(data)
+                    },
+                    error : function(error) {
+                        alert('error')
+                        //console.log(error)
+                    }
+                })     
+			}
+		// Detele comment
+		function delComment(userId,commentId){
+			var countComment = parseInt($('#count-comment').val())
+			$.ajax({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    type: 'post',
+                    url: path +'user/car/comment/delete',
+                    data : {userId: userId,commentId: commentId},
+                    success : function(data) {
+
+                        $('#load-comment').html(data)
+                        $('#comment').val('')
+                        $('#count-comment').val(countComment-1)
                         //alert(data)
                     },
                     error : function(error) {

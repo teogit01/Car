@@ -22,11 +22,11 @@
 
       <!-- Your Chat Plugin code -->
       <div class="fb-customerchat"
-        attribution=setup_tool
-        page_id="2141755022743174"
-  logged_in_greeting="Xin chào Thuê xe Cần Thơ có thể giúp gì cho bạn?"
-  logged_out_greeting="Xin chào Thuê xe Cần Thơ có thể giúp gì cho bạn?">
-      </div>
+      attribution=setup_tool
+      page_id="2141755022743174"
+      logged_in_greeting="Xin chào Thuê xe Cần Thơ có thể giúp gì cho bạn?"
+      logged_out_greeting="Xin chào Thuê xe Cần Thơ có thể giúp gì cho bạn?">
+    </div>
 
       
 	<div id="colorlib-page">

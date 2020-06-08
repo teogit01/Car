@@ -31,11 +31,16 @@
 	
 					<br>
 					<br>
-					<button class="btn btn-block btn-dark">Register</button>
+					<button class="btn btn-block btn-info">Register</button>
 					
 					<br>
 					
-					<img src="{{asset('css/register/icon/facebook.svg')}}">
+					<div class='icon'>
+						<img src="{{asset('css/register/icon/facebook.svg')}}">
+						<img src="{{asset('css/register/icon/facebook.svg')}}">
+						<img src="{{asset('css/register/icon/facebook.svg')}}">
+						<img src="{{asset('css/register/icon/facebook.svg')}}">
+					</div>
 				</form>
 			</div>
 		</div>
