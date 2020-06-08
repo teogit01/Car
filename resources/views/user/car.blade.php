@@ -14,7 +14,7 @@
 		<section class="ftco-section">
 			
 			@if (isset($amount))
-				<div style="margin-top: -50px;"><h3>có '{{ $amount }}' kết quả tìm kím {{ $key }}</h3></div>
+				<div style="margin-top: -50px;"><h3>có '{{ $amount }}' kết quả tìm kiếm '{{ $key }}'</h3></div>
 			@endif
 
 			<div class="container">
@@ -36,20 +36,31 @@
 														<p class="meta">
 															<!-- <span><i class="icon-calendar mr-2"></i>June 28, 2019</span> -->
 															<span><a href="single.html"><i class="icon-folder-o mr-2"></i>{{__('Type') }}</a></span>
-															<span><a class="" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"><i class="icon-comment2 mr-2"></i>Comment</span></a><input style="border: none;padding-left: 0;background-color: #fff; color: black" disabled type="number" id='count-comment'value='{{count($comments)}}'>
+															<span><a class="" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"><i class="icon-comment2 mr-2"></i>Comment</span></a>
+															<input style="border: none;padding-left: 0;background-color: #fff; color: black"disabled type="number" id='count-comment'value='{{count($comments)}}'>
 														</p>
 														<div class="collapse" id="collapseExample">
 															<div class="card card-body" style="border: none;margin-left: 50px;margin-top: -20px">
 																<div id='load-comment'>
-																@if ($comments)
+
+																@if (isset($comments))
 																@foreach ($comments as $comment)
 																<div style="display: flex;">
+																	
+																	<div style="width: 15%;">
+																		{{$comment->user->name}} :
+																	</div>
 
-																	<div style="width: 90%">
+
+																	<div style="width: 85%">
 																		{{$comment->content}}
 																	</div>
-		
-																	<div style="text-align: right;width: 10%" class="delComment" onclick='delComment()'>. . .</div>
+																	@if($comment->user_id == Auth::id())
+																		<div style="text-align: right;width: 10%" class="delComment" onclick='delComment({{$comment->user_id}},{{$comment->id}})'><img style="width: 20px; height: 20px" src="{{asset('icon/eraser.png')}}">
+																		</div>
+																	@else
+																	<div style="text-align: right;width: 10%"></div>
+																	@endif
 																</div>
 																<hr style="margin-top: -3px;color: #eee">
 																@endforeach
@@ -68,7 +79,7 @@
 															</div>
 														</div>
 													</div>
-													<span><a href="{{route('cart.add', $car->id)}}" class="btn btn-info" role="button">Add to cart</a></span>
+													<span><a href="{{route('cart.add', $car->id)}}" class="btn btn-info" role="button">{{__('Add to cart') }}</a></span>
 													<!-- <p><a href="#" class="btn-custom">Read More <span class="ion-ios-arrow-forward"></span></a></p> -->
 												</div>
 											</div>
@@ -129,8 +140,27 @@
                 })     
 			}
 		// Detele comment
-		function delComment(){
-			alert('delete')
-		}
+		function delComment(userId,commentId){
+			var countComment = parseInt($('#count-comment').val())
+			$.ajax({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    type: 'post',
+                    url: path +'user/car/comment/delete',
+                    data : {userId: userId,commentId: commentId},
+                    success : function(data) {
+
+                        $('#load-comment').html(data)
+                        $('#comment').val('')
+                        $('#count-comment').val(countComment-1)
+                        //alert(data)
+                    },
+                    error : function(error) {
+                        alert('error')
+                        //console.log(error)
+                    }
+                })     
+			}
 	</script>
 @endsection

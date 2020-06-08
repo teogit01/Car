@@ -13,11 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
+Route::get('/', function () {
 	
-//     return view('welcome');
-// });
-Route::get('/', 'Customer\MapController@index');
+    return redirect('user');
+});
+// Route::get('/', 'Customer\MapController@index');
 
 Route::get('/login','login@index')->name('login');
 Route::post('/login','login@postLogin')->name('postLogin');
@@ -122,6 +122,10 @@ route::prefix('/user')->group(function(){
 	route::get('/','User\UserController@index')->name('home');
 	route::get('/car','User\UserController@car')->name('car');
 	route::post('/car/comment','User\UserController@comment')->name('car.comment');
+	route::post('/car/comment/delete','User\UserController@commentDel')->name('car.comment.delete');
+
+	// profile user
+	route::get('/profile/{id}','User\UserController@profile')->name('profile');
 });
 
 /////////////////////  Search ////////////////////////////////
@@ -129,5 +133,9 @@ route::prefix('/user')->group(function(){
 //route::get('/search','SearchController@getSearch')->name('get.search');
 route::post('/search','SearchController@search')->name('search');
 // route::get('/search','SearchController@test');
+
+route::get('/test',function(){
+	return view("test");
+});
 
 

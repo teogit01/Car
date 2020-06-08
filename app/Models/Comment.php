@@ -37,4 +37,8 @@ class Comment extends BaseModel
         ];
         return parent::base_update($this->request);
     }
+
+    public function user(){
+        return $this->hasOne('App\Models\user','id','user_id');
+    }
 }

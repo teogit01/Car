@@ -38,16 +38,16 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-        
-        $request->validate([
-            'shipping_fullname' => 'required',
-            'shipping_address' => 'required',
-            'shipping_phone' => 'required',
-            'payment_method' => 'required',
-            'date' => 'required',
-            'time' => 'required',
-        ]);
 
+        // $request->validate([
+        //     'shipping_fullname' => 'required',
+        //     'shipping_address' => 'required',
+        //     'shipping_phone' => 'required',
+        //     'payment_method' => 'required',
+        //     'date' => 'required',
+        //     'time' => 'required',
+        // ]);
+        return $request;
         $order = new Invoice();
         
         $order->name = $request->input('shipping_fullname');
@@ -57,6 +57,7 @@ class OrderController extends Controller
         $order->item_count = \Cart::session(auth()->id())->getContent()->count();
         $order->date = $request->input('date');
         $order->time = $request->input('time');
+        $order->service = $request->input('shipping_sv');
 
         $order->user_id = auth()->id();
 
