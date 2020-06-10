@@ -28,7 +28,7 @@ class UserController extends Controller
 
     public function car(Request $request) {
 
-    	$cars = CarDetail::paginate(1);
+    	$cars = CarDetail::paginate(5);
         $comments = Comment::all();
     	return view('user.car',['cars'=>$cars,'comments'=>$comments]);
     }
@@ -82,5 +82,13 @@ class UserController extends Controller
         $user->save();
         return back()->with('success','Edit Successfully!');
 
+    }
+
+    //car detail
+    public function detail(Request $request){
+        //return "asd";
+        $car = CarDetail::find($request->id);
+        $Images = json_decode($car->image);
+       return view('user.detail',['car'=>$car,'Images'=>$Images]);
     }
 }

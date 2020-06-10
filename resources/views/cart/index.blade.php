@@ -30,8 +30,11 @@
 
                         <td>
                             <!-- <input name="quantity" class="form-control time" type="number" min=1 value="{{ $item->quantity }}"> -->
-
-                            <input type="number" name="" class="time" placeholder="{{$item->quantity}}" value="{{$item->quantity}}" min='1'>
+                            <form action="{{route('cart.update', $item->id)}}">
+                                <input type="number" name="quantity" class="time"  value="{{$item->quantity}}" min='1'>
+                                <input class="btn-warning" type="submit" value="{{__('Confirm') }}">
+                            </form>
+                            
                         </td>
                         <td>
                             <a href="{{route('cart.destroy', $item->id)}}" role="button">{{__('Delete') }}</a>

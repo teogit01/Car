@@ -247,4 +247,6 @@ class CarDetailController extends Controller
         } 
         
     }
+
+    
 }

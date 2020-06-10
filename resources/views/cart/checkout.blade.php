@@ -96,10 +96,10 @@
                 </div>
             </div>
             <div class="right">
-                fusd
+                
             </div>
         </div>
-<form style="width: 500px; margin-left: 25%; height: 700px" action="{{route('orders.store')}}" method="post">
+<!-- <form style="width: 500px; margin-left: 25%; height: 700px" action="{{route('orders.store')}}" method="post">
     @csrf
     <div class="form-group">
         <label for="">{{__('Name') }} :</label>
@@ -155,7 +155,7 @@
     <button class="btn btn-success" type="submit">{{__('CheckOut') }}</button>
 
 
-</form>
+</form> -->
 
 </div>
 
