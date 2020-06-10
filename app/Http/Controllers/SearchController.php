@@ -24,13 +24,13 @@ class SearchController extends Controller
     // }
     public function search(Request $request){
         //$cars = CarDetail::where('name','like','%'.$request->key.'%')->orWhere('price',$request->key)->get();
-        $cars = CarDetail::where('name','like','%'.$request->key.'%')->get();
+        $cars = CarDetail::where('name','like','%'.$request->key.'%')->paginate(10);
         $comments = Comment::all();
-<<<<<<< HEAD
+        
+
         return view('user.car',['cars'=>$cars,'amount'=>count($cars),'key'=>$request->key,'comments'=>$comments]);
-=======
-        return view('user.car',['cars'=>$cars,'amount'=>count($cars),'key'=>$request->key, 'comments'=>$comments]);
->>>>>>> 3e07f04dcd28ca5d76cb996c2e15a6c3e672ba7c
+
+
     }
 }
 

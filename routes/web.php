@@ -148,6 +148,7 @@ route::prefix('/customer')->group(function(){
 route::prefix('/user')->group(function(){
 	route::get('/','User\UserController@index')->name('home');
 	route::get('/car','User\UserController@car')->name('car');
+	route::get('/car/detail/{id}','User\UserController@detail')->name('car.detail');
   
 	route::post('/car/comment','User\UserController@comment')->name('car.comment');
 	route::post('/car/comment/delete','User\UserController@commentDel')->name('car.comment.delete');

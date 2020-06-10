@@ -25,7 +25,8 @@ class CartController extends Controller
             'attributes' => array(),
             'associatedModel' => $cars_detail
         ));
-        return redirect()->route('cart.index');
+        // return redirect()->route('cart.index');
+        return redirect()->back();
 
     }
 

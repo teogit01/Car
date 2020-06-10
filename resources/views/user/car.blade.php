@@ -8,6 +8,7 @@
 		input:focus { outline: none; }
 		.delComment { cursor: pointer; }
 		table { width: 100%; }
+		.a {cursor: pointer; }
 	</style>
 
 <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -27,17 +28,17 @@
 								<tr>
 									<td>
 										<div class="col-md-12" style="width: 100%">
-											<div class="blog-entry ftco-animate d-md-flex">
-												<a href="single.html" class="img img-2" style="background-image: url({{asset('img/carDetail')}}/{{json_decode($car->image)[0]}});"></a>
+											<div class="blog-entry ftco-animate d-md-flex"  ondblclick=(detail({{$car->id}}))>
+												<a class="img img-2 a" style="background-image: url({{asset('img/carDetail')}}/{{json_decode($car->image)[0]}});"></a>
 												<div class="text text-2 pl-md-4">
-													<h3 class="mb-2"><a href="single.html">{{$car->name}}</a></h3>
+													<h3 class="mb-2"><a class='a'>{{$car->name}}</a></h3>
 													<p class="mb-4">{{$car->description}}.</p>
 													<p>{{__('Price') }} : {{number_format($car->rental,0,'','.')}}/h</p>
 													<div class="meta-wrap">
 														<p class="meta">
 															<!-- <span><i class="icon-calendar mr-2"></i>June 28, 2019</span> -->
-															<span><a href="single.html"><i class="icon-folder-o mr-2"></i>{{__('Type') }}</a></span><span>{{$car->cartype->name}}</span>
-															<span><a class="" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"><i class="icon-comment2 mr-2"></i>Comment</span></a>
+															<span><a class='a'><i class="icon-folder-o mr-2"></i>{{__('Type') }}</a></span><span>{{$car->cartype->name}}</span>
+															<span><a class="a" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"><i class="icon-comment2 mr-2"></i>Comment</span></a>
 															<input style="border: none;padding-left: 0;background-color: #fff; color: black"disabled type="number" id='count-comment'value='{{count($comments)}}'>
 														</p>
 														<div class="collapse" id="collapseExample">
@@ -169,6 +170,11 @@
                         //console.log(error)
                     }
                 })     
+			}
+
+			function detail(id){
+				
+				window.location = path+'user/car/detail/'+id;
 			}
 	</script>
 @endsection
